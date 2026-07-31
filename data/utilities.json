@@ -220,7 +220,7 @@
     "description": "Strumento avanzato per cattura schermo e condivisione",
     "source": "github",
     "repo": "ShareX/ShareX",
-    "assetPattern": "^ShareX-.+-setup\\.exe$",
+    "assetPattern": "^ShareX-[\\d.]+-setup-x64\\.exe$",
     "filename": "sharex-setup.exe",
     "detectRegistry": [
       "ShareX"
@@ -428,7 +428,7 @@
     "id": "testdisk",
     "name": "TestDisk",
     "description": "Strumento di recupero dati e riparazione partizioni",
-    "downloadUrl": "https://www.cgsecurity.org/Download_and_donate.php/testdisk-7.2.win64.zip",
+    "downloadUrl": "https://www.cgsecurity.org/testdisk-7.2.win64.zip",
     "homepage": "https://www.cgsecurity.org/wiki/TestDisk",
     "filename": "testdisk-7.2.win64.zip",
     "detectRegistry": [
@@ -603,22 +603,6 @@
     ],
     "size": "~0.3MB",
     "description_en": "Shell extension for hash calculation and verification"
-  },
-  {
-    "id": "quickhash",
-    "name": "QuickHash GUI",
-    "description": "Strumento di hashing file con interfaccia grafica",
-    "downloadUrl": "https://www.quickhash-gui.org/download/quickhash-v3.3.4-win64-setup.exe",
-    "homepage": "https://www.quickhash-gui.org",
-    "filename": "quickhash-v3.3.4-win64-setup.exe",
-    "detectRegistry": [
-      "QuickHash GUI"
-    ],
-    "detectPaths": [
-      "C:/Program Files/QuickHash GUI/QuickHash.exe"
-    ],
-    "size": "~30MB",
-    "description_en": "File hashing tool with graphical interface"
   },
   {
     "id": "sysinternals",
@@ -814,5 +798,57 @@
     ],
     "size": "~7MB",
     "description_en": "Fast file copy with verification and transfer resume"
+  },
+  {
+    "id": "unigetui",
+    "name": "UniGetUI",
+    "description": "Interfaccia grafica per gestire pacchetti Winget, Scoop e Chocolatey",
+    "description_en": "Graphical interface to manage Winget, Scoop and Chocolatey packages",
+    "source": "github",
+    "repo": "Devolutions/UniGetUI",
+    "assetPattern": "^UniGetUI\\.Installer\\.x64\\.exe$",
+    "homepage": "https://www.marticliment.com/unigetui/",
+    "filename": "unigetui-setup.exe",
+    "detectRegistry": [
+      "UniGetUI"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/UniGetUI/UniGetUI.exe"
+    ],
+    "size": "~85MB"
+  },
+  {
+    "id": "bulk-crap-uninstaller",
+    "name": "Bulk Crap Uninstaller",
+    "description": "Disinstallatore open source per rimozione multipla di programmi",
+    "description_en": "Open source uninstaller for bulk program removal",
+    "source": "github",
+    "repo": "BCUninstaller/Bulk-Crap-Uninstaller",
+    "assetPattern": "^BCUninstaller_[\\d.]+_setup\\.exe$",
+    "homepage": "https://www.bcuninstaller.com",
+    "filename": "bcuninstaller-setup.exe",
+    "detectRegistry": [
+      "Bulk Crap Uninstaller"
+    ],
+    "detectPaths": [
+      "C:/Program Files/BCUninstaller/BCUninstaller.exe"
+    ],
+    "size": "~90MB"
+  },
+  {
+    "id": "wiztree",
+    "name": "WizTree",
+    "description": "Analizzatore spazio disco ultrarapido con mappa visuale",
+    "description_en": "Ultra-fast disk space analyzer with visual map",
+    "downloadUrl": "https://www.diskanalyzer.com/files/wiztree_4_31_setup.exe",
+    "homepage": "https://www.diskanalyzer.com",
+    "filename": "wiztree_setup.exe",
+    "detectRegistry": [
+      "WizTree"
+    ],
+    "detectPaths": [
+      "C:/Program Files/WizTree/WizTree64.exe"
+    ],
+    "size": "~5MB"
   }
 ]
