@@ -119,7 +119,7 @@
     "id": "claude-desktop",
     "name": "Claude Desktop",
     "description": "App desktop ufficiale di Claude AI di Anthropic",
-    "downloadUrl": "https://claude.ai/api/desktop/win32/x64/setup/latest/redirect",
+    "downloadUrl": "https://downloads.claude.ai/releases/win32/x64/1.24012.9/ClaudeSetup-03c61d06f8e01a4db2273b9514e225f21d2ba62e.exe",
     "homepage": "https://claude.ai",
     "filename": "claude-setup.exe",
     "detectRegistry": [
@@ -283,28 +283,11 @@
     "description_en": "GPU-accelerated Whisper speech transcription"
   },
   {
-    "id": "reor",
-    "name": "Reor",
-    "description": "Note-taking AI locale con grafo semantico e RAG",
-    "source": "github",
-    "repo": "reorproject/reor",
-    "assetPattern": "^Reor_[\\d.]+\\.exe$",
-    "filename": "reor-setup.exe",
-    "detectRegistry": [
-      "Reor"
-    ],
-    "detectPaths": [
-      "C:/Users/%USERNAME%/AppData/Local/Programs/reor-project/Reor.exe"
-    ],
-    "size": "~180MB",
-    "description_en": "Local AI note-taking with semantic graph and RAG"
-  },
-  {
     "id": "goose",
     "name": "Goose",
     "description": "Agente AI desktop open source di Block",
     "source": "github",
-    "repo": "block/goose",
+    "repo": "aaif-goose/goose",
     "assetPattern": "^Goose-win32-x64\\.zip$",
     "filename": "goose-win32-x64.zip",
     "detectRegistry": [
@@ -315,5 +298,39 @@
     ],
     "size": "~200MB",
     "description_en": "Open source desktop AI agent by Block"
+  },
+  {
+    "id": "cherry-studio",
+    "name": "Cherry Studio",
+    "description": "Client AI multi-provider open source con supporto RAG e MCP",
+    "source": "github",
+    "repo": "CherryHQ/cherry-studio",
+    "assetPattern": "^Cherry-Studio-[\\d.]+-x64-setup\\.exe$",
+    "filename": "cherry-studio-setup.exe",
+    "detectRegistry": [
+      "Cherry Studio"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/Cherry Studio/Cherry Studio.exe"
+    ],
+    "size": "~250MB",
+    "description_en": "Open source multi-provider AI client with RAG and MCP support"
+  },
+  {
+    "id": "opencode",
+    "name": "OpenCode",
+    "description": "Agente AI di coding open source per terminale e desktop",
+    "source": "github",
+    "repo": "anomalyco/opencode",
+    "assetPattern": "^opencode-desktop-win-x64\\.exe$",
+    "filename": "opencode-setup.exe",
+    "detectRegistry": [
+      "opencode"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/opencode/opencode.exe"
+    ],
+    "size": "~120MB",
+    "description_en": "Open source AI coding agent for terminal and desktop"
   }
 ]
