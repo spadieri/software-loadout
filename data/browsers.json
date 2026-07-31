@@ -99,7 +99,7 @@
     "id": "tor-browser",
     "name": "Tor Browser",
     "description": "Browser per la navigazione anonima tramite rete Tor",
-    "downloadUrl": "https://www.torproject.org/dist/torbrowser/15.0.7/tor-browser-windows-x86_64-portable-15.0.7.exe",
+    "downloadUrl": "https://dist.torproject.org/torbrowser/15.0.19/tor-browser-windows-x86_64-portable-15.0.19.exe",
     "homepage": "https://www.torproject.org",
     "filename": "tor-browser-install.exe",
     "detectRegistry": [
@@ -176,22 +176,6 @@
     "description_en": "Lightweight browser based on Goanna technology"
   },
   {
-    "id": "maxthon",
-    "name": "Maxthon",
-    "description": "Browser con cloud integrato e strumenti avanzati",
-    "downloadUrl": "https://dl.maxthon.com/mx6/maxthon_setup.exe",
-    "homepage": "https://www.maxthon.com",
-    "filename": "maxthon_setup.exe",
-    "detectRegistry": [
-      "Maxthon"
-    ],
-    "detectPaths": [
-      "C:/Program Files (x86)/Maxthon/Bin/Maxthon.exe"
-    ],
-    "size": "~70MB",
-    "description_en": "Browser with cloud integration and advanced tools"
-  },
-  {
     "id": "midori",
     "name": "Midori",
     "description": "Browser leggero e veloce per navigazione essenziale",
@@ -207,6 +191,60 @@
     ],
     "size": "~60MB",
     "description_en": "Lightweight and fast browser for essential browsing"
+  },
+  {
+    "id": "zen-browser",
+    "name": "Zen Browser",
+    "description": "Browser basato su Firefox con design moderno e spazi di lavoro",
+    "description_en": "Firefox-based browser with modern design and workspaces",
+    "source": "github",
+    "repo": "zen-browser/desktop",
+    "assetPattern": "^zen\\.installer\\.exe$",
+    "homepage": "https://zen-browser.app",
+    "filename": "zen-installer.exe",
+    "detectRegistry": [
+      "Zen"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Zen Browser/zen.exe"
+    ],
+    "size": "~90MB"
+  },
+  {
+    "id": "helium-browser",
+    "name": "Helium",
+    "description": "Browser Chromium minimale e focalizzato sulla privacy, senza bloat",
+    "description_en": "Minimal privacy-focused Chromium browser without bloat",
+    "source": "github",
+    "repo": "imputnet/helium-windows",
+    "assetPattern": "^helium_[\\d.]+_x64-installer\\.exe$",
+    "homepage": "https://helium.computer",
+    "filename": "helium-installer.exe",
+    "detectRegistry": [
+      "Helium"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Helium/Application/helium.exe"
+    ],
+    "size": "~110MB"
+  },
+  {
+    "id": "floorp",
+    "name": "Floorp",
+    "description": "Fork di Firefox giapponese altamente personalizzabile",
+    "description_en": "Highly customizable Japanese Firefox fork",
+    "source": "github",
+    "repo": "Floorp-Projects/Floorp",
+    "assetPattern": "^floorp-windows-x86_64\\.installer\\.exe$",
+    "homepage": "https://floorp.app",
+    "filename": "floorp-installer.exe",
+    "detectRegistry": [
+      "Floorp"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Floorp/floorp.exe"
+    ],
+    "size": "~70MB"
   },
   {
     "id": "thunderbird",
@@ -257,22 +295,6 @@
     "description_en": "Full-featured email client with calendar, contacts and chat"
   },
   {
-    "id": "postbox",
-    "name": "Postbox",
-    "description": "Client email professionale con gestione avanzata",
-    "downloadUrl": "https://www.postbox-inc.com/download/latest/win64",
-    "homepage": "https://www.postbox-inc.com",
-    "filename": "Postbox_Setup.exe",
-    "detectRegistry": [
-      "Postbox"
-    ],
-    "detectPaths": [
-      "C:/Program Files/Postbox/postbox.exe"
-    ],
-    "size": "~50MB",
-    "description_en": "Professional email client with advanced management"
-  },
-  {
     "id": "filezilla",
     "name": "FileZilla",
     "description": "Client FTP/SFTP open source per trasferimento file",
@@ -308,7 +330,7 @@
     "id": "putty",
     "name": "PuTTY",
     "description": "Client SSH e Telnet leggero per connessioni remote",
-    "downloadUrl": "https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.83-installer.msi",
+    "downloadUrl": "https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.84-installer.msi",
     "homepage": "https://www.chiark.greenend.org.uk/~sgtatham/putty/",
     "filename": "putty-installer.msi",
     "detectRegistry": [
@@ -335,6 +357,24 @@
     ],
     "size": "~55MB",
     "description_en": "Cloud storage and file transfer client with intuitive interface"
+  },
+  {
+    "id": "localsend",
+    "name": "LocalSend",
+    "description": "Condivisione file in rete locale senza cloud",
+    "description_en": "Local file sharing over LAN without cloud",
+    "source": "github",
+    "repo": "localsend/localsend",
+    "assetPattern": "^LocalSend-[\\d.]+-windows-x86-64\\.exe$",
+    "homepage": "https://localsend.app",
+    "filename": "localsend-setup.exe",
+    "detectRegistry": [
+      "LocalSend"
+    ],
+    "detectPaths": [
+      "C:/Program Files/LocalSend/LocalSend.exe"
+    ],
+    "size": "~15MB"
   },
   {
     "id": "qbittorrent",
@@ -372,9 +412,9 @@
     "id": "deluge",
     "name": "Deluge",
     "description": "Client BitTorrent open source multipiattaforma",
-    "downloadUrl": "https://ftp.osuosl.org/pub/deluge/windows/?C=M&O=D",
+    "downloadUrl": "https://ftp.osuosl.org/pub/deluge/windows/deluge-2.2.0-win64-setup.exe",
     "homepage": "https://deluge-torrent.org",
-    "filename": "deluge-2.1.1-win64-setup.exe",
+    "filename": "deluge-win64-setup.exe",
     "detectRegistry": [
       "Deluge"
     ],
@@ -416,22 +456,6 @@
     ],
     "size": "~40MB",
     "description_en": "Free download manager with torrent and video support"
-  },
-  {
-    "id": "jdownloader",
-    "name": "JDownloader 2",
-    "description": "Gestore download open source con supporto multi-hosting",
-    "downloadUrl": "https://mega.nz/file/LJ9FzK7b#t88t6DAF3LPs30hVjMDCGQB1YCYVAVwi-Bg7Ruil-TM",
-    "homepage": "https://jdownloader.org",
-    "filename": "JDownloader2Setup.exe",
-    "detectRegistry": [
-      "JDownloader 2"
-    ],
-    "detectPaths": [
-      "C:/Program Files/JDownloader/JDownloader2.exe"
-    ],
-    "size": "~45MB",
-    "description_en": "Open source download manager with multi-host support"
   },
   {
     "id": "internet-download-manager",
@@ -484,7 +508,7 @@
     "id": "mobaxterm",
     "name": "MobaXterm",
     "description": "Terminale avanzato con client SSH, X11 e strumenti di rete",
-    "downloadUrl": "https://mobaxterm.mobatek.net/download-home-edition.html",
+    "downloadUrl": "https://download.mobatek.net/2642026060332702/MobaXterm_Installer_v26.4.zip",
     "homepage": "https://mobaxterm.mobatek.net",
     "filename": "MobaXterm_Installer.zip",
     "detectRegistry": [
@@ -512,22 +536,6 @@
     ],
     "size": "~25MB",
     "description_en": "Open source multi-protocol remote connection manager"
-  },
-  {
-    "id": "realvnc-viewer",
-    "name": "RealVNC Viewer",
-    "description": "Client VNC per controllo remoto del desktop",
-    "downloadUrl": "https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.12.1-Windows-64bit.exe",
-    "homepage": "https://www.realvnc.com",
-    "filename": "VNC-Viewer-Windows.exe",
-    "detectRegistry": [
-      "VNC Viewer"
-    ],
-    "detectPaths": [
-      "C:/Program Files/RealVNC/VNC Viewer/vncviewer.exe"
-    ],
-    "size": "~20MB",
-    "description_en": "VNC client for remote desktop control"
   },
   {
     "id": "teamviewer",
@@ -578,10 +586,28 @@
     "description_en": "Low-latency remote desktop ideal for gaming"
   },
   {
+    "id": "rustdesk",
+    "name": "RustDesk",
+    "description": "Desktop remoto open source alternativo a TeamViewer",
+    "description_en": "Open source remote desktop alternative to TeamViewer",
+    "source": "github",
+    "repo": "rustdesk/rustdesk",
+    "assetPattern": "^rustdesk-[\\d.]+-x86_64\\.exe$",
+    "homepage": "https://rustdesk.com",
+    "filename": "rustdesk-setup.exe",
+    "detectRegistry": [
+      "RustDesk"
+    ],
+    "detectPaths": [
+      "C:/Program Files/RustDesk/rustdesk.exe"
+    ],
+    "size": "~20MB"
+  },
+  {
     "id": "wireshark",
     "name": "Wireshark",
     "description": "Analizzatore di protocolli di rete open source",
-    "downloadUrl": "https://2.na.dl.wireshark.org/win64/Wireshark-4.6.4-x64.exe",
+    "downloadUrl": "https://2.na.dl.wireshark.org/win64/Wireshark-4.6.7-x64.exe",
     "homepage": "https://www.wireshark.org",
     "filename": "Wireshark-x64.exe",
     "detectRegistry": [
@@ -626,10 +652,28 @@
     "description_en": "Platform for API testing and development"
   },
   {
+    "id": "bruno",
+    "name": "Bruno",
+    "description": "Client API open source e offline, alternativa a Postman",
+    "description_en": "Offline open source API client, Postman alternative",
+    "source": "github",
+    "repo": "usebruno/bruno",
+    "assetPattern": "^bruno_[\\d.]+_x64_win\\.exe$",
+    "homepage": "https://www.usebruno.com",
+    "filename": "bruno-setup.exe",
+    "detectRegistry": [
+      "Bruno"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/Bruno/Bruno.exe"
+    ],
+    "size": "~90MB"
+  },
+  {
     "id": "curl-windows",
     "name": "cURL for Windows",
     "description": "Strumento da riga di comando per trasferimento dati via URL",
-    "downloadUrl": "https://curl.se/windows/dl-8.11.0_1/curl-8.11.0_1-win64-mingw.zip",
+    "downloadUrl": "https://curl.se/windows/dl-8.21.0_6/curl-8.21.0_6-win64-mingw.zip",
     "homepage": "https://curl.se/windows/",
     "filename": "curl-win64-mingw.zip",
     "detectRegistry": [],
@@ -768,10 +812,26 @@
     "description_en": "Modern, fast and secure VPN with cutting-edge encryption"
   },
   {
+    "id": "tailscale",
+    "name": "Tailscale",
+    "description": "Mesh VPN basata su WireGuard per reti private semplici",
+    "description_en": "WireGuard-based mesh VPN for easy private networks",
+    "downloadUrl": "https://pkgs.tailscale.com/stable/tailscale-setup-latest-amd64.msi",
+    "homepage": "https://tailscale.com",
+    "filename": "tailscale-setup.msi",
+    "detectRegistry": [
+      "Tailscale"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Tailscale/tailscaled.exe"
+    ],
+    "size": "~30MB"
+  },
+  {
     "id": "cloudflare-warp",
     "name": "Cloudflare WARP",
     "description": "VPN gratuita di Cloudflare per navigazione veloce e sicura",
-    "downloadUrl": "https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-windows-1/distribution_groups/release",
+    "downloadUrl": "https://1111-releases.cloudflareclient.com/windows/Cloudflare_WARP_Release-x64.msi",
     "homepage": "https://one.one.one.one",
     "filename": "Cloudflare_WARP_Release-x64.msi",
     "detectRegistry": [
