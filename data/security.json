@@ -19,7 +19,7 @@
     "id": "avast-free",
     "name": "Avast Free Antivirus",
     "description": "Antivirus gratuito con protezione completa",
-    "downloadUrl": "https://www.avast.com/download-thank-you.php?product=FAV-ONLINE&locale=en-us",
+    "downloadUrl": "https://bits.avcdn.net/productfamily_ANTIVIRUS/insttype_FREE/platform_WIN/installer_ONLINE/build_RELEASE/cookie_mmm_ave_998_999_000_m.exe",
     "homepage": "https://www.avast.com",
     "filename": "avast_free_antivirus_setup_online.exe",
     "detectRegistry": [
@@ -35,7 +35,7 @@
     "id": "avg-free",
     "name": "AVG Free Antivirus",
     "description": "Antivirus gratuito con protezione essenziale",
-    "downloadUrl": "https://www.avg.com/download-thank-you.php?product=FAV-ONLINE&locale=en-us",
+    "downloadUrl": "https://bits.avcdn.net/productfamily_ANTIVIRUS/insttype_FREE/platform_WIN/installer_ONLINE/build_RELEASE/cookie_mmm_avg_998_999_000_m.exe",
     "homepage": "https://www.avg.com",
     "filename": "avg_antivirus_free_setup.exe",
     "detectRegistry": [
@@ -64,60 +64,12 @@
     "description_en": "Lightweight free antivirus with built-in VPN"
   },
   {
-    "id": "kaspersky-free",
-    "name": "Kaspersky Free",
-    "description": "Antivirus gratuito con motore di scansione premiato",
-    "downloadUrl": "https://www.kaspersky.com/downloads/free-antivirus",
-    "homepage": "https://www.kaspersky.com",
-    "filename": "kaspersky-free-setup.exe",
-    "detectRegistry": [
-      "Kaspersky Free"
-    ],
-    "detectPaths": [
-      "C:/Program Files (x86)/Kaspersky Lab/Kaspersky Free/avpui.exe"
-    ],
-    "size": "~2MB",
-    "description_en": "Free antivirus with award-winning scanning engine"
-  },
-  {
-    "id": "bitdefender-free",
-    "name": "Bitdefender Antivirus Free",
-    "description": "Antivirus gratuito con protezione automatica",
-    "downloadUrl": "https://www.bitdefender.com/solutions/free.html",
-    "homepage": "https://www.bitdefender.com",
-    "filename": "bitdefender_online.exe",
-    "detectRegistry": [
-      "Bitdefender Antivirus Free"
-    ],
-    "detectPaths": [
-      "C:/Program Files/Bitdefender/Bitdefender Security/bdagent.exe"
-    ],
-    "size": "~12MB",
-    "description_en": "Free antivirus with automatic protection"
-  },
-  {
-    "id": "windows-defender",
-    "name": "Windows Defender",
-    "description": "Antivirus integrato in Windows con protezione nativa",
-    "downloadUrl": "https://www.microsoft.com/it-it/windows/comprehensive-security",
-    "homepage": "https://www.microsoft.com/windows/comprehensive-security",
-    "filename": "built-in",
-    "detectRegistry": [
-      "Windows Security"
-    ],
-    "detectPaths": [
-      "C:/Program Files/Windows Defender/MsMpEng.exe"
-    ],
-    "size": "Integrato",
-    "description_en": "Windows built-in antivirus with native protection"
-  },
-  {
     "id": "comodo-antivirus",
     "name": "Comodo Free Antivirus",
     "description": "Antivirus gratuito con sandbox e HIPS",
-    "downloadUrl": "https://www.comodo.com/home/download/download.php?prod=antivirus",
+    "downloadUrl": "https://download.comodo.com/cis/download/installs/1000/partners/cav_installer_10299_ba.exe",
     "homepage": "https://www.comodo.com",
-    "filename": "cissetup_x64.exe",
+    "filename": "comodo-cav-installer.exe",
     "detectRegistry": [
       "COMODO Internet Security"
     ],
@@ -131,9 +83,9 @@
     "id": "zonealarm",
     "name": "ZoneAlarm Free Firewall",
     "description": "Firewall gratuito con protezione di rete avanzata",
-    "downloadUrl": "https://www.zonealarm.com/software/free-firewall",
+    "downloadUrl": "https://download.zonealarm.com/bin/free/downloads/ZANG/ZoneAlarmNGSetup_ZANG_FR_FW_AR8ZNP.exe",
     "homepage": "https://www.zonealarm.com",
-    "filename": "zaSetupWeb.exe",
+    "filename": "ZoneAlarmNGSetup.exe",
     "detectRegistry": [
       "ZoneAlarm Free Firewall"
     ],
@@ -241,22 +193,6 @@
     "description_en": "Password manager with automatic form filling"
   },
   {
-    "id": "dashlane",
-    "name": "Dashlane",
-    "description": "Gestore password con monitoraggio del dark web",
-    "downloadUrl": "https://www.dashlane.com/directdownload",
-    "homepage": "https://www.dashlane.com",
-    "filename": "DashlaneInstaller.exe",
-    "detectRegistry": [
-      "Dashlane"
-    ],
-    "detectPaths": [
-      "C:/Program Files/Dashlane/Dashlane.exe"
-    ],
-    "size": "~3MB",
-    "description_en": "Password manager with dark web monitoring"
-  },
-  {
     "id": "nordpass",
     "name": "NordPass",
     "description": "Gestore password sicuro del team NordVPN",
@@ -310,9 +246,9 @@
     "id": "axcrypt",
     "name": "AxCrypt",
     "description": "Crittografia file semplice con integrazione shell",
-    "downloadUrl": "https://www.axcrypt.net/download/AxCrypt-Setup.exe",
+    "downloadUrl": "https://account.axcrypt.net/Download/AxCrypt-2.exe",
     "homepage": "https://www.axcrypt.net",
-    "filename": "AxCrypt-Setup.exe",
+    "filename": "AxCrypt-2.exe",
     "detectRegistry": [
       "AxCrypt"
     ],
@@ -407,9 +343,9 @@
     "id": "protonvpn",
     "name": "ProtonVPN",
     "description": "VPN sicura e gratuita con sede in Svizzera",
-    "downloadUrl": "https://protonvpn.com/download-windows",
+    "downloadUrl": "https://protonvpn.com/download/ProtonVPN_v3.3.1.exe",
     "homepage": "https://protonvpn.com",
-    "filename": "ProtonVPN_win_setup.exe",
+    "filename": "ProtonVPN_Setup.exe",
     "detectRegistry": [
       "Proton VPN"
     ],
@@ -439,7 +375,7 @@
     "id": "tunnelbear",
     "name": "TunnelBear",
     "description": "VPN semplice e intuitiva con interfaccia amichevole",
-    "downloadUrl": "https://www.tunnelbear.com/apps/windows/",
+    "downloadUrl": "https://tunnelbear.s3.amazonaws.com/downloads/pc/public/TunnelBear-Installer.exe",
     "homepage": "https://www.tunnelbear.com",
     "filename": "TunnelBear-Installer.exe",
     "detectRegistry": [
@@ -468,28 +404,12 @@
     "description_en": "Fast premium VPN with double encryption"
   },
   {
-    "id": "expressvpn",
-    "name": "ExpressVPN (Trial)",
-    "description": "VPN premium con server in 105 paesi",
-    "downloadUrl": "https://www.expressvpn.com/vpn-download/vpn-windows",
-    "homepage": "https://www.expressvpn.com",
-    "filename": "expressvpn_windows_setup.exe",
-    "detectRegistry": [
-      "ExpressVPN"
-    ],
-    "detectPaths": [
-      "C:/Program Files (x86)/ExpressVPN/expressvpn-ui/ExpressVPN.exe"
-    ],
-    "size": "~35MB",
-    "description_en": "Premium VPN with servers in 105 countries"
-  },
-  {
     "id": "torbrowser",
     "name": "Tor Browser",
     "description": "Browser anonimo basato su Firefox con rete Tor",
-    "downloadUrl": "https://www.torproject.org/dist/torbrowser/15.0.7/tor-browser-windows-x86_64-portable-15.0.7.exe",
+    "downloadUrl": "https://dist.torproject.org/torbrowser/15.0.19/tor-browser-windows-x86_64-portable-15.0.19.exe",
     "homepage": "https://www.torproject.org",
-    "filename": "tor-browser-windows-x86_64-portable-15.0.7.exe",
+    "filename": "tor-browser-install.exe",
     "detectRegistry": [
       "Tor Browser"
     ],
@@ -503,14 +423,14 @@
     "id": "tails",
     "name": "Tails",
     "description": "Sistema operativo live anonimo basato su Tor",
-    "downloadUrl": "https://tails.net/install/download/",
+    "downloadUrl": "https://download.tails.net/tails/stable/tails-amd64-7.10/tails-amd64-7.10.img",
     "homepage": "https://tails.net",
-    "filename": "tails-redirect",
+    "filename": "tails-amd64-7.10.img",
     "detectRegistry": [
       "Tails"
     ],
     "detectPaths": [],
-    "size": "~1.3GB",
+    "size": "~1.9GB",
     "description_en": "Anonymous live operating system based on Tor"
   },
   {
@@ -562,26 +482,12 @@
     "description_en": "File shredder with multiple overwrite algorithms"
   },
   {
-    "id": "usbsafeguard",
-    "name": "USB Safeguard",
-    "description": "Crittografia e protezione per unità USB",
-    "downloadUrl": "http://usbsafeguard.altervista.org/download.html",
-    "homepage": "http://usbsafeguard.altervista.org",
-    "filename": "usbsafeguard.exe",
-    "detectRegistry": [
-      "USB Safeguard"
-    ],
-    "detectPaths": [],
-    "size": "~1MB",
-    "description_en": "Encryption and protection for USB drives"
-  },
-  {
     "id": "folderlock",
     "name": "Folder Lock (Trial)",
     "description": "Protezione e crittografia cartelle con password",
-    "downloadUrl": "https://www.newsoftwares.net/download/flsetup.exe",
+    "downloadUrl": "https://www.newsoftwares.net/download/folderlock10-en/folder-lock-en.exe",
     "homepage": "https://www.newsoftwares.net/folderlock/",
-    "filename": "flsetup.exe",
+    "filename": "folder-lock-en.exe",
     "detectRegistry": [
       "Folder Lock"
     ],
@@ -595,9 +501,9 @@
     "id": "netlimiter",
     "name": "NetLimiter (Trial)",
     "description": "Controllo e limitazione del traffico di rete per applicazione",
-    "downloadUrl": "https://www.netlimiter.com/download",
+    "downloadUrl": "https://download.netlimiter.com/nl/netlimiter-5.3.26.0.exe",
     "homepage": "https://www.netlimiter.com",
-    "filename": "NetLimiter-5-Setup.exe",
+    "filename": "netlimiter-5-setup.exe",
     "detectRegistry": [
       "NetLimiter"
     ],
@@ -611,9 +517,9 @@
     "id": "wireshark",
     "name": "Wireshark",
     "description": "Analizzatore di protocolli di rete professionale",
-    "downloadUrl": "https://2.na.dl.wireshark.org/win64/Wireshark-4.4.3-x64.exe",
+    "downloadUrl": "https://2.na.dl.wireshark.org/win64/Wireshark-4.6.7-x64.exe",
     "homepage": "https://www.wireshark.org",
-    "filename": "Wireshark-4.4.3-x64.exe",
+    "filename": "Wireshark-x64.exe",
     "detectRegistry": [
       "Wireshark"
     ],
@@ -709,9 +615,9 @@
     "id": "comodo-sandbox",
     "name": "Comodo Sandbox",
     "description": "Ambiente virtualizzato per eseguire applicazioni sospette",
-    "downloadUrl": "https://www.comodo.com/home/download/download.php?prod=antivirus",
+    "downloadUrl": "https://download.comodo.com/cis/download/installs/1000/partners/cav_installer_10299_ba.exe",
     "homepage": "https://www.comodo.com",
-    "filename": "cissetup_x64.exe",
+    "filename": "comodo-cav-installer.exe",
     "detectRegistry": [
       "COMODO Internet Security"
     ],
@@ -741,7 +647,7 @@
     "id": "superantispyware",
     "name": "SUPERAntiSpyware",
     "description": "Rimozione spyware, adware e malware",
-    "downloadUrl": "https://www.superantispyware.com/downloadfile.html?productid=SUPERANTISPYWAREFREE",
+    "downloadUrl": "https://secure.superantispyware.com/SUPERAntiSpyware.exe",
     "homepage": "https://www.superantispyware.com",
     "filename": "SUPERAntiSpyware.exe",
     "detectRegistry": [
@@ -786,19 +692,99 @@
     "description_en": "Anti-malware specialized in rootkits and hidden processes"
   },
   {
-    "id": "crowdinspect",
-    "name": "CrowdInspect",
-    "description": "Ispettore processi con analisi VirusTotal integrata",
-    "downloadUrl": "https://www.crowdstrike.com/en-us/resources/community-tools/crowdinspect-tool/",
-    "homepage": "https://www.crowdstrike.com/resources/community-tools/crowdinspect-tool/",
-    "filename": "CrowdInspect.zip",
+    "id": "kaspersky-kvrt",
+    "name": "Kaspersky Virus Removal Tool",
+    "description": "Scanner antivirus on-demand gratuito di Kaspersky",
+    "downloadUrl": "https://devbuilds.s.kaspersky-labs.com/devbuilds/KVRT/latest/full/KVRT.exe",
+    "homepage": "https://www.kaspersky.com/downloads/free-virus-removal-tool",
+    "filename": "KVRT.exe",
+    "detectRegistry": [],
+    "detectPaths": [],
+    "size": "~170MB",
+    "description_en": "Free on-demand antivirus scanner by Kaspersky"
+  },
+  {
+    "id": "eset-online-scanner",
+    "name": "ESET Online Scanner",
+    "description": "Scanner anti-malware on-demand gratuito di ESET",
+    "downloadUrl": "https://download.eset.com/com/eset/tools/online_scanner/latest/esetonlinescanner.exe",
+    "homepage": "https://www.eset.com/int/home/online-scanner/",
+    "filename": "esetonlinescanner.exe",
+    "detectRegistry": [],
+    "detectPaths": [],
+    "size": "~13MB",
+    "description_en": "Free on-demand malware scanner by ESET"
+  },
+  {
+    "id": "emsisoft-emergency-kit",
+    "name": "Emsisoft Emergency Kit",
+    "description": "Kit portatile di scansione e rimozione malware a doppio motore",
+    "downloadUrl": "https://dl.emsisoft.com/EmsisoftEmergencyKit.exe",
+    "homepage": "https://www.emsisoft.com/en/home/emergencykit/",
+    "filename": "EmsisoftEmergencyKit.exe",
+    "detectRegistry": [],
+    "detectPaths": [],
+    "size": "~380MB",
+    "description_en": "Portable dual-engine malware scan and removal kit"
+  },
+  {
+    "id": "simplewall",
+    "name": "simplewall",
+    "description": "Firewall open source leggero basato su Windows Filtering Platform",
+    "source": "github",
+    "repo": "henrypp/simplewall",
+    "assetPattern": "^simplewall-[\\d.]+-setup\\.exe$",
+    "homepage": "https://github.com/henrypp/simplewall",
+    "filename": "simplewall-setup.exe",
     "detectRegistry": [
-      "CrowdInspect"
+      "simplewall"
     ],
     "detectPaths": [
-      "C:/CrowdInspect/CrowdInspect64.exe"
+      "C:/Program Files/simplewall/simplewall.exe"
     ],
-    "size": "~2MB",
-    "description_en": "Process inspector with integrated VirusTotal analysis"
+    "size": "~1MB",
+    "description_en": "Lightweight open source firewall based on Windows Filtering Platform"
+  },
+  {
+    "id": "portmaster",
+    "name": "Portmaster",
+    "description": "Firewall applicativo open source con DNS privacy e filtri per app",
+    "downloadUrl": "https://updates.safing.io/latest/windows_amd64/packages/portmaster-installer.exe",
+    "homepage": "https://safing.io",
+    "filename": "portmaster-installer.exe",
+    "detectRegistry": [
+      "Portmaster"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Portmaster/portmaster.exe"
+    ],
+    "size": "~45MB",
+    "description_en": "Open source application firewall with private DNS and per-app filters"
+  },
+  {
+    "id": "picocrypt",
+    "name": "Picocrypt",
+    "description": "Strumento di crittografia file minimale, portabile e sicuro",
+    "source": "github",
+    "repo": "Picocrypt/picocrypt",
+    "assetPattern": "^Picocrypt\\.exe$",
+    "homepage": "https://github.com/Picocrypt/picocrypt",
+    "filename": "Picocrypt.exe",
+    "detectRegistry": [],
+    "detectPaths": [],
+    "size": "~10MB",
+    "description_en": "Minimal, portable and secure file encryption tool"
+  },
+  {
+    "id": "sysinternals-suite",
+    "name": "Sysinternals Suite",
+    "description": "Raccolta ufficiale Microsoft di strumenti avanzati di diagnostica e sicurezza",
+    "downloadUrl": "https://download.sysinternals.com/files/SysinternalsSuite.zip",
+    "homepage": "https://learn.microsoft.com/sysinternals/",
+    "filename": "SysinternalsSuite.zip",
+    "detectRegistry": [],
+    "detectPaths": [],
+    "size": "~55MB",
+    "description_en": "Microsoft's official collection of advanced diagnostics and security tools"
   }
 ]
