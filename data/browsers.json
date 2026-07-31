@@ -508,7 +508,8 @@
     "id": "mobaxterm",
     "name": "MobaXterm",
     "description": "Terminale avanzato con client SSH, X11 e strumenti di rete",
-    "downloadUrl": "https://download.mobatek.net/2642026060332702/MobaXterm_Installer_v26.4.zip",
+    "downloadUrl": "https://mobaxterm.mobatek.net/download-home-edition.html",
+    "source": "browser",
     "homepage": "https://mobaxterm.mobatek.net",
     "filename": "MobaXterm_Installer.zip",
     "detectRegistry": [

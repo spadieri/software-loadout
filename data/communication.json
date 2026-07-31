@@ -35,7 +35,8 @@
     "id": "whatsapp",
     "name": "WhatsApp Desktop",
     "description": "Client desktop per la messaggistica WhatsApp",
-    "downloadUrl": "https://get.microsoft.com/installer/download/9NKSQGP7F2NH?referrer=appdirect",
+    "downloadUrl": "https://www.whatsapp.com/download",
+    "source": "browser",
     "homepage": "https://www.whatsapp.com",
     "filename": "WhatsApp Installer.exe",
     "detectRegistry": [
@@ -307,7 +308,8 @@
     "id": "beeper",
     "name": "Beeper",
     "description": "App universale che unifica tutte le piattaforme di messaggistica",
-    "downloadUrl": "https://beeper-desktop.download.beeper.com/builds/Beeper%20x64%204.3.0.exe",
+    "downloadUrl": "https://www.beeper.com/download",
+    "source": "browser",
     "homepage": "https://www.beeper.com",
     "filename": "Beeper-Setup.exe",
     "detectRegistry": [

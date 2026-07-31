@@ -119,7 +119,8 @@
     "id": "claude-desktop",
     "name": "Claude Desktop",
     "description": "App desktop ufficiale di Claude AI di Anthropic",
-    "downloadUrl": "https://downloads.claude.ai/releases/win32/x64/1.24012.9/ClaudeSetup-03c61d06f8e01a4db2273b9514e225f21d2ba62e.exe",
+    "downloadUrl": "https://claude.ai/download",
+    "source": "browser",
     "homepage": "https://claude.ai",
     "filename": "claude-setup.exe",
     "detectRegistry": [
@@ -298,6 +299,19 @@
     ],
     "size": "~200MB",
     "description_en": "Open source desktop AI agent by Block"
+  },
+  {
+    "id": "unsloth-studio",
+    "name": "Unsloth Studio",
+    "description": "Piattaforma locale per fine-tuning e inferenza LLM (GGUF, LoRA, RL)",
+    "source": "browser",
+    "downloadUrl": "https://unsloth.ai/docs/new/studio/",
+    "homepage": "https://unsloth.ai",
+    "filename": "",
+    "detectRegistry": [],
+    "detectPaths": [],
+    "size": "installer via script PowerShell",
+    "description_en": "Local platform for LLM fine-tuning and inference (GGUF, LoRA, RL)"
   },
   {
     "id": "cherry-studio",

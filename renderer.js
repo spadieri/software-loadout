@@ -343,6 +343,17 @@ async function handleDownload(software, card) {
     return;
   }
 
+  // Browser-source entries: no wget-compatible direct link exists
+  // (e.g. vendors with ever-changing URLs), open the download page instead
+  if (software.source === 'browser') {
+    const url = software.downloadUrl || getHomepageUrl(software);
+    if (url && window.electronAPI && window.electronAPI.openExternal) {
+      window.electronAPI.openExternal(url);
+      showToast(t('toast.openingBrowser'), 'success');
+    }
+    return;
+  }
+
   // Start downloading state
   card.classList.add('downloading');
   card.classList.remove('error');

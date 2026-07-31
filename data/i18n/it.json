@@ -18,5 +18,6 @@
   "toast.refreshing": "Verifica software installati...",
   "toast.refreshed": "Stato installati aggiornato",
   "card.projectLink": "Apri pagina progetto",
-  "card.projectLabel": "Link al sito"
+  "card.projectLabel": "Link al sito",
+  "toast.openingBrowser": "Apertura pagina download nel browser..."
 }
