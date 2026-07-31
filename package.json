@@ -1,6 +1,6 @@
 {
   "name": "software-loadout",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Windows software catalog and installer",
   "main": "main.js",
   "scripts": {
