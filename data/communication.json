@@ -35,9 +35,9 @@
     "id": "whatsapp",
     "name": "WhatsApp Desktop",
     "description": "Client desktop per la messaggistica WhatsApp",
-    "downloadUrl": "https://web.whatsapp.com/desktop/windows/release/x64/WhatsAppSetup.exe",
+    "downloadUrl": "https://get.microsoft.com/installer/download/9NKSQGP7F2NH?referrer=appdirect",
     "homepage": "https://www.whatsapp.com",
-    "filename": "WhatsAppSetup.exe",
+    "filename": "WhatsApp Installer.exe",
     "detectRegistry": [
       "WhatsApp"
     ],
@@ -67,9 +67,9 @@
     "id": "slack",
     "name": "Slack",
     "description": "Piattaforma di comunicazione per team e aziende",
-    "downloadUrl": "https://slack.com/ssb/download-win64-msi",
+    "downloadUrl": "https://slack.com/ssb/download-win64",
     "homepage": "https://slack.com",
-    "filename": "SlackSetup.msi",
+    "filename": "SlackSetup.exe",
     "detectRegistry": [
       "Slack"
     ],
@@ -121,22 +121,6 @@
     "detectPaths": [],
     "size": "Web App",
     "description_en": "Free video conferencing integrated with Google Workspace"
-  },
-  {
-    "id": "skype",
-    "name": "Skype",
-    "description": "Chiamate vocali, video e messaggistica istantanea",
-    "downloadUrl": "https://go.skype.com/windows.desktop.download",
-    "homepage": "https://www.skype.com",
-    "filename": "Skype-Setup.exe",
-    "detectRegistry": [
-      "Skype"
-    ],
-    "detectPaths": [
-      "C:/Program Files/Microsoft/Skype for Desktop/Skype.exe"
-    ],
-    "size": "~80MB",
-    "description_en": "Voice calls, video and instant messaging"
   },
   {
     "id": "viber",
@@ -253,38 +237,6 @@
     "description_en": "Professional voice communication for gaming and communities"
   },
   {
-    "id": "ventrilo",
-    "name": "Ventrilo",
-    "description": "Software di comunicazione vocale classico per gaming",
-    "downloadUrl": "https://www.ventrilo.com/dlprod.php?id=403",
-    "homepage": "https://www.ventrilo.com",
-    "filename": "Ventrilo-4.1.2-Windows-x64.exe",
-    "detectRegistry": [
-      "Ventrilo Client"
-    ],
-    "detectPaths": [
-      "C:/Program Files/Ventrilo/Ventrilo.exe"
-    ],
-    "size": "~10MB",
-    "description_en": "Classic voice communication software for gaming"
-  },
-  {
-    "id": "guilded",
-    "name": "Guilded",
-    "description": "Piattaforma di chat per community di gaming con strumenti avanzati",
-    "downloadUrl": "https://www.guilded.gg/downloads/app/win32/ia32",
-    "homepage": "https://www.guilded.gg",
-    "filename": "Guilded-Setup.exe",
-    "detectRegistry": [
-      "Guilded"
-    ],
-    "detectPaths": [
-      "C:/Users/Pd85/AppData/Local/Guilded/Guilded.exe"
-    ],
-    "size": "~80MB",
-    "description_en": "Gaming community chat platform with advanced tools"
-  },
-  {
     "id": "revolt",
     "name": "Revolt",
     "description": "Piattaforma di chat open source alternativa a Discord",
@@ -355,7 +307,7 @@
     "id": "beeper",
     "name": "Beeper",
     "description": "App universale che unifica tutte le piattaforme di messaggistica",
-    "downloadUrl": "https://download.beeper.com/windows/appinstaller/x64",
+    "downloadUrl": "https://beeper-desktop.download.beeper.com/builds/Beeper%20x64%204.3.0.exe",
     "homepage": "https://www.beeper.com",
     "filename": "Beeper-Setup.exe",
     "detectRegistry": [
@@ -484,7 +436,7 @@
     "id": "bluemail",
     "name": "BlueMail",
     "description": "Client email gratuito con supporto multi-account",
-    "downloadUrl": "https://bluemail.me/desktop/direct/",
+    "downloadUrl": "https://download.bluemail.me/BlueMail-Desktop-Installer.exe",
     "homepage": "https://bluemail.me",
     "filename": "BlueMail-Desktop-Installer.exe",
     "detectRegistry": [
@@ -647,9 +599,9 @@
     "id": "evernote",
     "name": "Evernote",
     "description": "App di note e organizzazione con ricerca potente e web clipper",
-    "downloadUrl": "https://evernote.com/download",
+    "downloadUrl": "https://win.desktop.evernote.com/builds/Evernote-latest.exe",
     "homepage": "https://evernote.com",
-    "filename": "Evernote-Setup.exe",
+    "filename": "Evernote-latest.exe",
     "detectRegistry": [
       "Evernote"
     ],
@@ -768,5 +720,93 @@
     ],
     "size": "~100MB",
     "description_en": "Self-hosted open source communication platform for teams"
+  },
+  {
+    "id": "vesktop",
+    "name": "Vesktop",
+    "description": "Client Discord alternativo con Vencord integrato e migliori prestazioni",
+    "description_en": "Alternative Discord client with built-in Vencord and better performance",
+    "source": "github",
+    "repo": "Vencord/Vesktop",
+    "assetPattern": "^Vesktop-Setup-[\\d.]+\\.exe$",
+    "homepage": "https://vencord.dev",
+    "filename": "vesktop-setup.exe",
+    "detectRegistry": [
+      "Vesktop"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/vesktop/Vesktop.exe"
+    ],
+    "size": "~100MB"
+  },
+  {
+    "id": "legcord",
+    "name": "Legcord",
+    "description": "Client Discord leggero e open source, successore di ArmCord",
+    "description_en": "Lightweight open source Discord client, successor to ArmCord",
+    "source": "github",
+    "repo": "Legcord/Legcord",
+    "assetPattern": "^Legcord-[\\d.]+-win-x64\\.exe$",
+    "homepage": "https://legcord.app",
+    "filename": "legcord-setup.exe",
+    "detectRegistry": [
+      "Legcord"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/legcord/Legcord.exe"
+    ],
+    "size": "~90MB"
+  },
+  {
+    "id": "session",
+    "name": "Session",
+    "description": "Messaggistica anonima e decentralizzata senza numero di telefono",
+    "description_en": "Anonymous decentralized messaging without phone number",
+    "source": "github",
+    "repo": "session-foundation/session-desktop",
+    "assetPattern": "^session-desktop-win-x64-[\\d.]+\\.exe$",
+    "homepage": "https://getsession.org",
+    "filename": "session-setup.exe",
+    "detectRegistry": [
+      "Session"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/session-desktop/Session.exe"
+    ],
+    "size": "~100MB"
+  },
+  {
+    "id": "simplex-chat",
+    "name": "SimpleX Chat",
+    "description": "Messaggistica privata senza identificatori utente",
+    "description_en": "Private messaging without any user identifiers",
+    "source": "github",
+    "repo": "simplex-chat/simplex-chat",
+    "assetPattern": "^simplex-desktop-windows-x86_64\\.msi$",
+    "homepage": "https://simplex.chat",
+    "filename": "simplex-desktop-setup.msi",
+    "detectRegistry": [
+      "SimpleX"
+    ],
+    "detectPaths": [],
+    "size": "~120MB"
+  },
+  {
+    "id": "zulip",
+    "name": "Zulip",
+    "description": "Chat di team open source con organizzazione a topic",
+    "description_en": "Open source team chat with topic-based organization",
+    "source": "github",
+    "repo": "zulip/zulip-desktop",
+    "assetPattern": "^Zulip-[\\d.]+-x64\\.msi$",
+    "homepage": "https://zulip.com",
+    "filename": "zulip-setup.msi",
+    "detectRegistry": [
+      "Zulip"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/Zulip/Zulip.exe"
+    ],
+    "size": "~90MB"
   }
 ]
