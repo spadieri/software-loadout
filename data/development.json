@@ -19,7 +19,7 @@
     "id": "sublimetext",
     "name": "Sublime Text",
     "description": "Editor di testo sofisticato per codice e markup",
-    "downloadUrl": "https://www.sublimetext.com/download_thanks?target=win-x64",
+    "downloadUrl": "https://download.sublimetext.com/sublime_text_build_4200_x64_setup.exe",
     "homepage": "https://www.sublimetext.com",
     "filename": "SublimeTextSetup-x64.exe",
     "detectRegistry": [
@@ -49,21 +49,76 @@
     "description_en": "Free text and source code editor with plugin support"
   },
   {
-    "id": "atom",
-    "name": "Atom",
-    "description": "Editor di testo hackerabile del 21° secolo di GitHub (archiviato)",
+    "id": "pulsar",
+    "name": "Pulsar",
+    "description": "Editor di testo hackerabile, successore comunitario di Atom",
+    "description_en": "Hackable text editor, community-led successor to Atom",
     "source": "github",
-    "repo": "atom/atom",
-    "assetPattern": "^AtomSetup-x64\\.exe$",
-    "filename": "atom-setup.exe",
+    "repo": "pulsar-edit/pulsar",
+    "assetPattern": "^Windows\\.Pulsar\\.Setup\\.[\\d.]+\\.exe$",
+    "homepage": "https://pulsar-edit.dev",
+    "filename": "pulsar-setup.exe",
     "detectRegistry": [
-      "Atom"
+      "Pulsar"
     ],
     "detectPaths": [
-      "C:/Users/%USERNAME%/AppData/Local/atom/atom.exe"
+      "C:/Users/%USERNAME%/AppData/Local/Programs/pulsar/Pulsar.exe"
     ],
-    "size": "~200MB",
-    "description_en": "GitHub's hackable text editor for the 21st century (archived)"
+    "size": "~200MB"
+  },
+  {
+    "id": "zed",
+    "name": "Zed",
+    "description": "Editor di codice velocissimo scritto in Rust, con collaborazione integrata",
+    "description_en": "Blazing fast code editor written in Rust with built-in collaboration",
+    "source": "github",
+    "repo": "zed-industries/zed",
+    "assetPattern": "^Zed-x86_64\\.exe$",
+    "homepage": "https://zed.dev",
+    "filename": "zed-setup.exe",
+    "detectRegistry": [
+      "Zed"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/Zed/zed.exe"
+    ],
+    "size": "~80MB"
+  },
+  {
+    "id": "vscodium",
+    "name": "VSCodium",
+    "description": "Build open source di VS Code senza telemetria Microsoft",
+    "description_en": "Open source build of VS Code without Microsoft telemetry",
+    "source": "github",
+    "repo": "VSCodium/vscodium",
+    "assetPattern": "^VSCodiumUserSetup-x64-[\\d.]+\\.exe$",
+    "homepage": "https://vscodium.com",
+    "filename": "vscodium-setup.exe",
+    "detectRegistry": [
+      "VSCodium"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/VSCodium/VSCodium.exe"
+    ],
+    "size": "~95MB"
+  },
+  {
+    "id": "neovim",
+    "name": "Neovim",
+    "description": "Editor da terminale estensibile, evoluzione moderna di Vim",
+    "description_en": "Extensible terminal editor, modern evolution of Vim",
+    "source": "github",
+    "repo": "neovim/neovim",
+    "assetPattern": "^nvim-win64\\.msi$",
+    "homepage": "https://neovim.io",
+    "filename": "nvim-win64.msi",
+    "detectRegistry": [
+      "Neovim"
+    ],
+    "detectPaths": [
+      "C:/Program Files/nvim/bin/nvim.exe"
+    ],
+    "size": "~12MB"
   },
   {
     "id": "intellij-idea-community",
@@ -101,7 +156,7 @@
     "id": "eclipse",
     "name": "Eclipse IDE",
     "description": "IDE open source per sviluppatori Java e multi-linguaggio",
-    "downloadUrl": "https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2024-12/R/eclipse-inst-jre-win64.exe",
+    "downloadUrl": "https://download.eclipse.org/oomph/epp/2025-09/R/eclipse-inst-jre-win64.exe",
     "homepage": "https://www.eclipse.org",
     "filename": "eclipse-inst-jre-win64.exe",
     "detectRegistry": [
@@ -147,6 +202,22 @@
     "description_en": "Google's official IDE for Android app development"
   },
   {
+    "id": "visual-studio-community",
+    "name": "Visual Studio Community",
+    "description": "IDE completo e gratuito di Microsoft per .NET, C++, web e altro",
+    "description_en": "Microsoft's free full-featured IDE for .NET, C++, web and more",
+    "downloadUrl": "https://aka.ms/vs/17/release/vs_community.exe",
+    "homepage": "https://visualstudio.microsoft.com",
+    "filename": "vs_community.exe",
+    "detectRegistry": [
+      "Visual Studio"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/devenv.exe"
+    ],
+    "size": "~4MB (web installer)"
+  },
+  {
     "id": "git",
     "name": "Git",
     "description": "Sistema di controllo versione distribuito open source",
@@ -162,6 +233,40 @@
     ],
     "size": "~65MB",
     "description_en": "Distributed open source version control system"
+  },
+  {
+    "id": "github-cli",
+    "name": "GitHub CLI",
+    "description": "Interfaccia a riga di comando ufficiale di GitHub",
+    "description_en": "GitHub's official command line interface",
+    "source": "github",
+    "repo": "cli/cli",
+    "assetPattern": "^gh_[\\d.]+_windows_amd64\\.msi$",
+    "homepage": "https://cli.github.com",
+    "filename": "gh-cli-setup.msi",
+    "detectRegistry": [
+      "GitHub CLI"
+    ],
+    "detectPaths": [
+      "C:/Program Files/GitHub CLI/gh.exe"
+    ],
+    "size": "~12MB"
+  },
+  {
+    "id": "lazygit",
+    "name": "lazygit",
+    "description": "Client Git da terminale con interfaccia TUI semplice e veloce",
+    "description_en": "Simple and fast terminal UI Git client",
+    "source": "github",
+    "repo": "jesseduffield/lazygit",
+    "assetPattern": "^lazygit_[\\d.]+_windows_x86_64\\.zip$",
+    "homepage": "https://github.com/jesseduffield/lazygit",
+    "filename": "lazygit-windows.zip",
+    "detectRegistry": [],
+    "detectPaths": [
+      "C:/lazygit/lazygit.exe"
+    ],
+    "size": "~8MB"
   },
   {
     "id": "tortoisegit",
@@ -215,7 +320,7 @@
     "id": "gitkraken",
     "name": "GitKraken",
     "description": "Client Git multi-piattaforma con interfaccia grafica avanzata",
-    "downloadUrl": "https://www.gitkraken.com/download/windows64",
+    "downloadUrl": "https://api.gitkraken.dev/releases/production/windows/x64/active/GitKrakenSetup.exe",
     "homepage": "https://www.gitkraken.com",
     "filename": "GitKrakenSetup.exe",
     "detectRegistry": [
@@ -244,6 +349,56 @@
     "description_en": "Server-side JavaScript runtime based on V8 (LTS version)"
   },
   {
+    "id": "nvm-windows",
+    "name": "NVM for Windows",
+    "description": "Gestore di versioni Node.js per Windows",
+    "description_en": "Node.js version manager for Windows",
+    "source": "github",
+    "repo": "coreybutler/nvm-windows",
+    "assetPattern": "^nvm-setup\\.exe$",
+    "homepage": "https://github.com/coreybutler/nvm-windows",
+    "filename": "nvm-setup.exe",
+    "detectRegistry": [
+      "NVM for Windows"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Roaming/nvm/nvm.exe"
+    ],
+    "size": "~3MB"
+  },
+  {
+    "id": "bun",
+    "name": "Bun",
+    "description": "Runtime JavaScript veloce con package manager e bundler integrati",
+    "description_en": "Fast JavaScript runtime with built-in package manager and bundler",
+    "source": "github",
+    "repo": "oven-sh/bun",
+    "assetPattern": "^bun-windows-x64\\.zip$",
+    "homepage": "https://bun.sh",
+    "filename": "bun-windows-x64.zip",
+    "detectRegistry": [],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/.bun/bin/bun.exe"
+    ],
+    "size": "~30MB"
+  },
+  {
+    "id": "deno",
+    "name": "Deno",
+    "description": "Runtime JavaScript/TypeScript sicuro con toolchain integrata",
+    "description_en": "Secure JavaScript/TypeScript runtime with built-in toolchain",
+    "source": "github",
+    "repo": "denoland/deno",
+    "assetPattern": "^deno-x86_64-pc-windows-msvc\\.zip$",
+    "homepage": "https://deno.com",
+    "filename": "deno-windows-x64.zip",
+    "detectRegistry": [],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/.deno/bin/deno.exe"
+    ],
+    "size": "~30MB"
+  },
+  {
     "id": "python",
     "name": "Python",
     "description": "Linguaggio di programmazione versatile e di alto livello",
@@ -259,6 +414,22 @@
     ],
     "size": "~28MB",
     "description_en": "Versatile and high-level programming language"
+  },
+  {
+    "id": "uv",
+    "name": "uv",
+    "description": "Gestore pacchetti e versioni Python velocissimo di Astral",
+    "description_en": "Blazing fast Python package and version manager by Astral",
+    "source": "github",
+    "repo": "astral-sh/uv",
+    "assetPattern": "^uv-x86_64-pc-windows-msvc\\.zip$",
+    "homepage": "https://docs.astral.sh/uv/",
+    "filename": "uv-windows-x64.zip",
+    "detectRegistry": [],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/.local/bin/uv.exe"
+    ],
+    "size": "~15MB"
   },
   {
     "id": "ruby",
@@ -313,9 +484,9 @@
     "id": "php",
     "name": "PHP",
     "description": "Linguaggio di scripting lato server per lo sviluppo web",
-    "downloadUrl": "https://windows.php.net/downloads/releases/php-8.4.16-Win32-vs17-x64.zip",
+    "downloadUrl": "https://windows.php.net/downloads/releases/php-8.4.24-Win32-vs17-x64.zip",
     "homepage": "https://www.php.net",
-    "filename": "php-8.4.16-Win32-vs17-x64.zip",
+    "filename": "php-8.4.24-Win32-vs17-x64.zip",
     "detectRegistry": [],
     "detectPaths": [
       "C:/php/php.exe"
@@ -553,27 +724,11 @@
     "description_en": "GPU-accelerated terminal emulator, fast and minimal"
   },
   {
-    "id": "hyper",
-    "name": "Hyper",
-    "description": "Terminale moderno basato su Electron con temi e plugin",
-    "downloadUrl": "https://releases.hyper.is/download/win",
-    "homepage": "https://hyper.is",
-    "filename": "Hyper-Setup.exe",
-    "detectRegistry": [
-      "Hyper"
-    ],
-    "detectPaths": [
-      "C:/Users/%USERNAME%/AppData/Local/hyper/Hyper.exe"
-    ],
-    "size": "~75MB",
-    "description_en": "Modern Electron-based terminal with themes and plugins"
-  },
-  {
     "id": "conemu",
     "name": "ConEmu",
     "description": "Emulatore di console avanzato per Windows con schede",
     "source": "github",
-    "repo": "Maximus5/ConEmu",
+    "repo": "ConEmu/ConEmu",
     "assetPattern": "^ConEmuSetup\\.[\\d]+\\.exe$",
     "filename": "conemu-setup.exe",
     "detectRegistry": [
@@ -666,12 +821,29 @@
     "description_en": "Free and open source universal database client"
   },
   {
+    "id": "beekeeper-studio",
+    "name": "Beekeeper Studio",
+    "description": "Client database open source per SQL con interfaccia moderna",
+    "description_en": "Open source SQL database client with modern interface",
+    "source": "github",
+    "repo": "beekeeper-studio/beekeeper-studio",
+    "assetPattern": "^Beekeeper-Studio-Setup-[\\d.]+\\.exe$",
+    "homepage": "https://www.beekeeperstudio.io",
+    "filename": "beekeeper-studio-setup.exe",
+    "detectRegistry": [
+      "Beekeeper Studio"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/beekeeper-studio/Beekeeper Studio.exe"
+    ],
+    "size": "~90MB"
+  },
+  {
     "id": "heidisql",
     "name": "HeidiSQL",
     "description": "Client leggero per MySQL, MariaDB, PostgreSQL e SQL Server",
-    "downloadUrl": "https://www.heidisql.com/installers/HeidiSQL_12.8.0.6908_Setup.exe",
     "homepage": "https://www.heidisql.com",
-    "filename": "HeidiSQL_Setup.exe",
+    "filename": "heidisql-setup.exe",
     "detectRegistry": [
       "HeidiSQL"
     ],
@@ -679,13 +851,16 @@
       "C:/Program Files/HeidiSQL/heidisql.exe"
     ],
     "size": "~30MB",
-    "description_en": "Lightweight client for MySQL, MariaDB, PostgreSQL and SQL Server"
+    "description_en": "Lightweight client for MySQL, MariaDB, PostgreSQL and SQL Server",
+    "source": "github",
+    "repo": "HeidiSQL/HeidiSQL",
+    "assetPattern": "^HeidiSQL_[\\d.]+_Setup\\.exe$"
   },
   {
     "id": "mysql-workbench",
     "name": "MySQL Workbench",
     "description": "Strumento visivo per la progettazione e amministrazione di database MySQL",
-    "downloadUrl": "https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.40-winx64.msi",
+    "downloadUrl": "https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community-8.0.44-winx64.msi",
     "homepage": "https://www.mysql.com/products/workbench/",
     "filename": "mysql-workbench-community-winx64.msi",
     "detectRegistry": [
@@ -782,7 +957,7 @@
     "id": "wireshark",
     "name": "Wireshark",
     "description": "Analizzatore di protocolli di rete open source",
-    "downloadUrl": "https://2.na.dl.wireshark.org/win64/Wireshark-4.6.4-x64.exe",
+    "downloadUrl": "https://2.na.dl.wireshark.org/win64/Wireshark-4.6.7-x64.exe",
     "homepage": "https://www.wireshark.org",
     "filename": "Wireshark-x64.exe",
     "detectRegistry": [
@@ -809,5 +984,39 @@
     ],
     "size": "~35MB",
     "description_en": "Professional tool for comparing and merging files and folders"
+  },
+  {
+    "id": "devtoys",
+    "name": "DevToys",
+    "description": "Coltellino svizzero per sviluppatori: JSON, JWT, regex, encoding e altro",
+    "description_en": "Swiss army knife for developers: JSON, JWT, regex, encoding and more",
+    "source": "github",
+    "repo": "DevToys-app/DevToys",
+    "assetPattern": "^\\d+VelerSoftware\\.DevToys_[\\d.]+_neutral_\\._[\\w]+\\.msixbundle$",
+    "homepage": "https://devtoys.app",
+    "filename": "devtoys.msixbundle",
+    "detectRegistry": [
+      "DevToys"
+    ],
+    "detectPaths": [],
+    "size": "~120MB"
+  },
+  {
+    "id": "drawio",
+    "name": "draw.io Desktop",
+    "description": "Editor di diagrammi e schemi tecnici gratuito e open source",
+    "description_en": "Free and open source diagram and technical drawing editor",
+    "source": "github",
+    "repo": "jgraph/drawio-desktop",
+    "assetPattern": "^draw\\.io-[\\d.]+-windows-installer\\.exe$",
+    "homepage": "https://www.drawio.com",
+    "filename": "drawio-setup.exe",
+    "detectRegistry": [
+      "draw.io"
+    ],
+    "detectPaths": [
+      "C:/Program Files/draw.io/draw.io.exe"
+    ],
+    "size": "~100MB"
   }
 ]
