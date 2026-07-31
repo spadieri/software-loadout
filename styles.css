@@ -921,6 +921,11 @@ body {
   color: var(--text-muted);
 }
 
+.sidebar-groups-actions {
+  display: flex;
+  gap: 6px;
+}
+
 .groups-nav {
   max-height: 30vh;
   overflow-y: auto;

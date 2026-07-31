@@ -7,5 +7,6 @@
   { "id": "communication", "name": "Comunicazione", "name_en": "Communication", "icon": "message-circle" },
   { "id": "office", "name": "Office & Produttività", "name_en": "Office & Productivity", "icon": "file-text" },
   { "id": "system", "name": "Sistema", "name_en": "System", "icon": "cpu" },
-  { "id": "ai", "name": "AI & Strumenti IA", "name_en": "AI Tools", "icon": "brain" }
+  { "id": "ai", "name": "AI & Strumenti IA", "name_en": "AI Tools", "icon": "brain" },
+  { "id": "gaming", "name": "Gaming", "name_en": "Gaming", "icon": "gamepad" }
 ]

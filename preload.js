@@ -12,7 +12,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   groups: {
     getAll: () => ipcRenderer.invoke('groups:get-all'),
     save: (group) => ipcRenderer.invoke('groups:save', group),
-    delete: (id) => ipcRenderer.invoke('groups:delete', id)
+    delete: (id) => ipcRenderer.invoke('groups:delete', id),
+    export: (group) => ipcRenderer.invoke('groups:export', group),
+    import: () => ipcRenderer.invoke('groups:import')
   },
   queue: {
     start: (queueId, items) => ipcRenderer.invoke('queue:start', { queueId, items }),

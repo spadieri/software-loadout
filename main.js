@@ -512,6 +512,62 @@ ipcMain.handle('groups:delete', (_event, id) => {
   return true;
 });
 
+// Export a group to a portable .loadout.json file
+ipcMain.handle('groups:export', async (_event, group) => {
+  const { canceled, filePath } = await dialog.showSaveDialog(mainWindow, {
+    title: 'Export group',
+    defaultPath: `${String(group.name || 'loadout').replace(/[^\w-]+/g, '_')}.loadout.json`,
+    filters: [{ name: 'Loadout JSON', extensions: ['json'] }]
+  });
+  if (canceled || !filePath) return { canceled: true };
+
+  const payload = {
+    app: 'software-loadout',
+    version: 1,
+    groups: [{ name: group.name, softwareIds: group.softwareIds }]
+  };
+  fs.writeFileSync(filePath, JSON.stringify(payload, null, 2));
+  return { canceled: false, filePath };
+});
+
+// Import one or more groups from a .loadout.json file.
+// Accepts { groups: [...] }, a plain array, or a single { name, softwareIds }.
+ipcMain.handle('groups:import', async () => {
+  const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {
+    title: 'Import loadouts',
+    filters: [{ name: 'Loadout JSON', extensions: ['json'] }],
+    properties: ['openFile']
+  });
+  if (canceled || !filePaths.length) return { canceled: true };
+
+  let parsed;
+  try {
+    parsed = JSON.parse(fs.readFileSync(filePaths[0], 'utf8'));
+  } catch {
+    throw new Error('Invalid JSON file');
+  }
+
+  let list = [];
+  if (Array.isArray(parsed)) list = parsed;
+  else if (parsed && Array.isArray(parsed.groups)) list = parsed.groups;
+  else if (parsed && typeof parsed.name === 'string') list = [parsed];
+
+  const groups = readGroups();
+  const imported = [];
+  for (const g of list) {
+    const name = String((g && g.name) || '').trim();
+    const softwareIds = Array.isArray(g.softwareIds)
+      ? g.softwareIds.filter(x => typeof x === 'string')
+      : [];
+    if (!name) continue;
+    const created = { id: crypto.randomUUID(), name, softwareIds, createdAt: Date.now() };
+    groups.push(created);
+    imported.push(created);
+  }
+  writeGroups(groups);
+  return { canceled: false, imported };
+});
+
 // ============================================================
 // Install queue - serial setup execution with download-ahead-1
 // One installer at a time (spawn + wait for exit); the next download

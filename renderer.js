@@ -13,7 +13,8 @@ const ICON_MAP = {
   'message-circle': '\u{1F4AC}',
   'file-text': '\u{1F4C4}',
   'cpu': '\u2699\uFE0F',
-  'brain': '\u{1F9E0}'
+  'brain': '\u{1F9E0}',
+  'gamepad': '\u{1F3AE}'
 };
 
 // ----- State -----
@@ -48,6 +49,7 @@ const openDownloadsBtn = document.getElementById('open-downloads');
 const refreshInstalledBtn = document.getElementById('refresh-installed');
 const groupsNav = document.getElementById('groups-nav');
 const newGroupBtn = document.getElementById('new-group-btn');
+const importGroupBtn = document.getElementById('import-group-btn');
 const groupModal = document.getElementById('group-modal');
 const groupModalTitle = document.getElementById('group-modal-title');
 const groupNameInput = document.getElementById('group-name-input');
@@ -74,6 +76,8 @@ async function init() {
   document.querySelector('.sidebar-title').textContent = t('sidebar.title');
   document.getElementById('groups-title').textContent = t('groups.title');
   searchInput.placeholder = t('search.placeholder');
+  importGroupBtn.title = t('groups.import');
+  newGroupBtn.title = t('groups.new');
 
   try {
     // 1. Categories + all category JSONs + cached-installed in parallel.
@@ -690,6 +694,8 @@ async function switchLang(lang) {
   document.getElementById('search').placeholder = t('search.placeholder');
   document.querySelector('.sidebar-title').textContent = t('sidebar.title');
   document.getElementById('groups-title').textContent = t('groups.title');
+  importGroupBtn.title = t('groups.import');
+  newGroupBtn.title = t('groups.new');
   renderSidebar(categories);
   renderGroupsNav();
   if (currentGroupId) {
@@ -840,6 +846,12 @@ function renderGroupView() {
   editBtn.textContent = t('groups.edit');
   editBtn.addEventListener('click', () => openGroupModal(group));
 
+  const exportBtn = document.createElement('button');
+  exportBtn.className = 'modal-btn';
+  exportBtn.type = 'button';
+  exportBtn.textContent = t('groups.export');
+  exportBtn.addEventListener('click', () => exportGroup(group));
+
   const deleteBtn = document.createElement('button');
   deleteBtn.className = 'modal-btn modal-btn-danger';
   deleteBtn.type = 'button';
@@ -848,6 +860,7 @@ function renderGroupView() {
 
   bar.appendChild(installBtn);
   bar.appendChild(editBtn);
+  bar.appendChild(exportBtn);
   bar.appendChild(deleteBtn);
   cardsGrid.appendChild(bar);
 
@@ -877,6 +890,7 @@ let modalSelection = new Set();
 
 function setupGroupModal() {
   newGroupBtn.addEventListener('click', () => openGroupModal(null));
+  importGroupBtn.addEventListener('click', importGroups);
   groupCancelBtn.addEventListener('click', closeGroupModal);
   groupSaveBtn.addEventListener('click', saveGroupModal);
   groupSearchInput.addEventListener('input', renderModalList);
@@ -977,6 +991,32 @@ async function deleteGroup(group) {
   groups = groups.filter(g => g.id !== group.id);
   renderGroupsNav();
   if (categories.length > 0) selectCategory(categories[0].id);
+}
+
+async function exportGroup(group) {
+  try {
+    const result = await window.electronAPI.groups.export(group);
+    if (!result.canceled) showToast(t('groups.exportDone'), 'success');
+  } catch (err) {
+    showToast(`${t('toast.error')}${err.message}`, 'error');
+  }
+}
+
+async function importGroups() {
+  try {
+    const result = await window.electronAPI.groups.import();
+    if (result.canceled) return;
+    if (!result.imported || result.imported.length === 0) {
+      showToast(t('groups.importNone'), 'warning');
+      return;
+    }
+    groups.push(...result.imported);
+    renderGroupsNav();
+    showToast(`${result.imported.length} ${t('groups.importDone')}`, 'success');
+    selectGroup(result.imported[0].id);
+  } catch (err) {
+    showToast(`${t('groups.importError')}${err.message}`, 'error');
+  }
 }
 
 // ============================================================

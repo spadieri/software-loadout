@@ -46,5 +46,11 @@
   "queue.state.downloaded-only": "Downloaded only",
   "queue.state.skipped-browser": "Needs browser",
   "queue.state.error": "Error",
-  "queue.state.cancelled": "Cancelled"
+  "queue.state.cancelled": "Cancelled",
+  "groups.export": "Export",
+  "groups.import": "Import groups",
+  "groups.exportDone": "Group exported",
+  "groups.importDone": "groups imported",
+  "groups.importNone": "No valid group found in the file",
+  "groups.importError": "Import failed: "
 }

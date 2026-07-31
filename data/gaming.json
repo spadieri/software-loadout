@@ -1,0 +1,498 @@
+[
+  {
+    "id": "steam",
+    "name": "Steam",
+    "description": "La piattaforma di distribuzione di giochi più grande al mondo di Valve",
+    "description_en": "Valve's world-leading game distribution platform",
+    "downloadUrl": "https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe",
+    "homepage": "https://store.steampowered.com",
+    "filename": "SteamSetup.exe",
+    "detectRegistry": [
+      "Steam"
+    ],
+    "detectPaths": [
+      "C:/Program Files (x86)/Steam/steam.exe"
+    ],
+    "size": "~3MB"
+  },
+  {
+    "id": "epic-games-launcher",
+    "name": "Epic Games Launcher",
+    "description": "Store di Epic Games con giochi gratuiti settimanali e Unreal Engine",
+    "description_en": "Epic Games store with weekly free games and Unreal Engine",
+    "downloadUrl": "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi",
+    "homepage": "https://store.epicgames.com",
+    "filename": "EpicGamesLauncherInstaller.msi",
+    "detectRegistry": [
+      "Epic Games Launcher"
+    ],
+    "detectPaths": [
+      "C:/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32/EpicGamesLauncher.exe"
+    ],
+    "size": "~60MB"
+  },
+  {
+    "id": "gog-galaxy",
+    "name": "GOG Galaxy 2.0",
+    "description": "Client DRM-free di GOG per unire librerie di giochi da più piattaforme",
+    "description_en": "GOG's DRM-free client to unite game libraries from multiple platforms",
+    "downloadUrl": "https://content-system.gog.com/open_link/download?path=/open/galaxy/client/2.0.77.22/setup_galaxy_2.0.77.22.exe",
+    "homepage": "https://www.gog.com/galaxy",
+    "filename": "setup_galaxy.exe",
+    "detectRegistry": [
+      "GOG GALAXY"
+    ],
+    "detectPaths": [
+      "C:/Program Files/GOG Galaxy/GalaxyClient.exe"
+    ],
+    "size": "~290MB"
+  },
+  {
+    "id": "ea-app",
+    "name": "EA App",
+    "description": "Piattaforma ufficiale di Electronic Arts per i suoi giochi su PC",
+    "description_en": "Electronic Arts' official platform for its PC games",
+    "downloadUrl": "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EAappInstaller.exe",
+    "homepage": "https://www.ea.com/ea-app",
+    "filename": "EAappInstaller.exe",
+    "detectRegistry": [
+      "EA app"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Electronic Arts/EA Desktop/EA Desktop/EADesktop.exe"
+    ],
+    "size": "~2MB"
+  },
+  {
+    "id": "ubisoft-connect",
+    "name": "Ubisoft Connect",
+    "description": "Client ufficiale di Ubisoft per giochi, ricompense e statistiche",
+    "description_en": "Ubisoft's official client for games, rewards and stats",
+    "downloadUrl": "https://static3.cdn.ubi.com/orbit/launcher_installer/UbisoftConnectInstaller.exe",
+    "homepage": "https://ubisoftconnect.com",
+    "filename": "UbisoftConnectInstaller.exe",
+    "detectRegistry": [
+      "Ubisoft Connect"
+    ],
+    "detectPaths": [
+      "C:/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe"
+    ],
+    "size": "~230MB"
+  },
+  {
+    "id": "battle-net",
+    "name": "Battle.net",
+    "description": "Launcher di Blizzard per World of Warcraft, Diablo, Overwatch e altri",
+    "description_en": "Blizzard's launcher for World of Warcraft, Diablo, Overwatch and more",
+    "downloadUrl": "https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live",
+    "homepage": "https://www.blizzard.com/apps/battle.net/desktop",
+    "filename": "Battle.net-Setup.exe",
+    "detectRegistry": [
+      "Battle.net"
+    ],
+    "detectPaths": [
+      "C:/Program Files (x86)/Battle.net/Battle.net.exe"
+    ],
+    "size": "~5MB"
+  },
+  {
+    "id": "itch-io-app",
+    "name": "itch.io app",
+    "description": "Client open source per lo store di giochi indipendenti itch.io",
+    "description_en": "Open source client for the itch.io indie game store",
+    "downloadUrl": "https://itch.io/app/download",
+    "homepage": "https://itch.io/app",
+    "filename": "itch-setup.exe",
+    "detectRegistry": [
+      "itch"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/itch/itch.exe"
+    ],
+    "size": "~100MB"
+  },
+  {
+    "id": "amazon-games",
+    "name": "Amazon Games",
+    "description": "Client di Amazon per i giochi inclusi con Prime Gaming",
+    "description_en": "Amazon's client for games included with Prime Gaming",
+    "downloadUrl": "https://download.amazongames.com/AmazonGamesSetup.exe",
+    "homepage": "https://gaming.amazon.com",
+    "filename": "AmazonGamesSetup.exe",
+    "detectRegistry": [
+      "Amazon Games"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Amazon Games/App/Amazon Games.exe"
+    ],
+    "size": "~100MB"
+  },
+  {
+    "id": "riot-client",
+    "name": "Riot Client",
+    "description": "Launcher di Riot Games per League of Legends, Valorant e Teamfight Tactics",
+    "description_en": "Riot Games launcher for League of Legends, Valorant and Teamfight Tactics",
+    "downloadUrl": "https://www.riotgames.com/en",
+    "source": "browser",
+    "homepage": "https://www.riotgames.com/en",
+    "filename": "Install VALORANT.exe",
+    "detectRegistry": [
+      "Riot Client"
+    ],
+    "detectPaths": [
+      "C:/Riot Games/Riot Client/RiotClientServices.exe"
+    ],
+    "size": "~100MB"
+  },
+  {
+    "id": "xbox-app",
+    "name": "Xbox App",
+    "description": "App Microsoft per PC Game Pass e catalogo giochi Xbox su Windows",
+    "description_en": "Microsoft app for PC Game Pass and the Xbox game catalog on Windows",
+    "downloadUrl": "https://www.xbox.com/en-US/apps/xbox-app-on-pc",
+    "source": "browser",
+    "homepage": "https://www.xbox.com/en-US/apps/xbox-app-on-pc",
+    "filename": "XboxInstaller.exe",
+    "detectRegistry": [
+      "Xbox"
+    ],
+    "detectPaths": [],
+    "size": "~150MB"
+  },
+  {
+    "id": "playnite",
+    "name": "Playnite",
+    "description": "Gestore open source che unisce tutte le librerie di giochi in un'unica interfaccia",
+    "description_en": "Open source manager uniting all game libraries in one interface",
+    "downloadUrl": "https://playnite.link/download/PlayniteInstaller.exe",
+    "homepage": "https://playnite.link",
+    "filename": "PlayniteInstaller.exe",
+    "detectRegistry": [
+      "Playnite"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Playnite/Playnite.DesktopApp.exe"
+    ],
+    "size": "~80MB"
+  },
+  {
+    "id": "heroic-games-launcher",
+    "name": "Heroic Games Launcher",
+    "description": "Launcher open source per Epic Games, GOG e Amazon Games",
+    "description_en": "Open source launcher for Epic Games, GOG and Amazon Games",
+    "source": "github",
+    "repo": "Heroic-Games-Launcher/HeroicGamesLauncher",
+    "assetPattern": "^Heroic-[\\d.]+-Setup-x64\\.exe$",
+    "homepage": "https://heroicgameslauncher.com",
+    "filename": "Heroic-Setup.exe",
+    "detectRegistry": [
+      "Heroic"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/heroic/Heroic.exe"
+    ],
+    "size": "~100MB"
+  },
+  {
+    "id": "legendary",
+    "name": "Legendary",
+    "description": "CLI open source per scaricare e avviare giochi da Epic Games Store",
+    "description_en": "Open source CLI to download and launch Epic Games Store titles",
+    "source": "github",
+    "repo": "legendary-gl/legendary",
+    "assetPattern": "^legendary\\.exe$",
+    "homepage": "https://github.com/legendary-gl/legendary",
+    "filename": "legendary.exe",
+    "detectRegistry": [],
+    "detectPaths": [
+      "C:/Program Files/legendary/legendary.exe"
+    ],
+    "size": "~15MB"
+  },
+  {
+    "id": "watt-toolkit",
+    "name": "Watt Toolkit",
+    "description": "Acceleratore di rete e toolkit multipiattaforma per Steam (ex Steam++)",
+    "description_en": "Network accelerator and multi-platform toolkit for Steam (formerly Steam++)",
+    "source": "github",
+    "repo": "BeyondDimension/SteamTools",
+    "assetPattern": "^Steam\\+\\+_v[\\d.]+_win_x64\\.exe$",
+    "homepage": "https://steampp.net",
+    "filename": "WattToolkit-setup.exe",
+    "detectRegistry": [
+      "Watt Toolkit"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Watt Toolkit/Watt Toolkit.exe"
+    ],
+    "size": "~70MB"
+  },
+  {
+    "id": "prism-launcher",
+    "name": "Prism Launcher",
+    "description": "Launcher open source per Minecraft con gestione istanze e modpack",
+    "description_en": "Open source Minecraft launcher with instance and modpack management",
+    "source": "github",
+    "repo": "PrismLauncher/PrismLauncher",
+    "assetPattern": "^PrismLauncher-Windows-MSVC-Setup-[\\d.]+\\.exe$",
+    "homepage": "https://prismlauncher.org",
+    "filename": "PrismLauncher-Setup.exe",
+    "detectRegistry": [
+      "PrismLauncher"
+    ],
+    "detectPaths": [
+      "C:/Program Files/PrismLauncher/prismlauncher.exe"
+    ],
+    "size": "~40MB"
+  },
+  {
+    "id": "moonlight",
+    "name": "Moonlight",
+    "description": "Client open source per lo streaming di giochi via Sunshine/NVIDIA GameStream",
+    "description_en": "Open source client for game streaming via Sunshine/NVIDIA GameStream",
+    "source": "github",
+    "repo": "moonlight-stream/moonlight-qt",
+    "assetPattern": "^MoonlightSetup-[\\d.]+\\.exe$",
+    "homepage": "https://moonlight-stream.org",
+    "filename": "MoonlightSetup.exe",
+    "detectRegistry": [
+      "Moonlight"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Moonlight Game Streaming/Moonlight.exe"
+    ],
+    "size": "~50MB"
+  },
+  {
+    "id": "sunshine",
+    "name": "Sunshine",
+    "description": "Host open source per game streaming, compatibile con client Moonlight",
+    "description_en": "Open source game streaming host, compatible with Moonlight clients",
+    "source": "github",
+    "repo": "LizardByte/Sunshine",
+    "assetPattern": "^Sunshine-Windows-AMD64-installer\\.exe$",
+    "homepage": "https://app.lizardbyte.dev/Sunshine",
+    "filename": "Sunshine-installer.exe",
+    "detectRegistry": [
+      "Sunshine"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Sunshine/sunshine.exe"
+    ],
+    "size": "~30MB"
+  },
+  {
+    "id": "chiaki-ng",
+    "name": "Chiaki-ng",
+    "description": "Client open source per il Remote Play di PlayStation 4 e PlayStation 5",
+    "description_en": "Open source client for PlayStation 4 and PlayStation 5 Remote Play",
+    "source": "github",
+    "repo": "streetpea/chiaki-ng",
+    "assetPattern": "^chiaki-ng-win_x64-MSYS2-Release-installer\\.exe\\.zip$",
+    "homepage": "https://streetpea.github.io/chiaki-ng/",
+    "filename": "chiaki-ng-installer.zip",
+    "detectRegistry": [
+      "chiaki-ng"
+    ],
+    "detectPaths": [
+      "C:/Program Files/chiaki-ng/chiaki.exe"
+    ],
+    "size": "~40MB"
+  },
+  {
+    "id": "reshade",
+    "name": "ReShade",
+    "description": "Iniettore di post-processing per migliorare la grafica di qualsiasi gioco",
+    "description_en": "Post-processing injector to enhance the graphics of any game",
+    "downloadUrl": "https://reshade.me",
+    "source": "browser",
+    "homepage": "https://reshade.me",
+    "filename": "ReShade_Setup.exe",
+    "detectRegistry": [],
+    "detectPaths": [],
+    "size": "~6MB"
+  },
+  {
+    "id": "capframex",
+    "name": "CapFrameX",
+    "description": "Strumento di cattura e analisi dei frametime per benchmark di gioco",
+    "description_en": "Frametime capture and analysis tool for game benchmarking",
+    "source": "github",
+    "repo": "CXWorld/CapFrameX",
+    "assetPattern": "^release_[\\d.]+_installer\\.zip$",
+    "homepage": "https://www.capframex.com",
+    "filename": "CapFrameX-installer.zip",
+    "detectRegistry": [
+      "CapFrameX"
+    ],
+    "detectPaths": [
+      "C:/Program Files/CapFrameX/CapFrameX.exe"
+    ],
+    "size": "~120MB"
+  },
+  {
+    "id": "vortex",
+    "name": "Vortex",
+    "description": "Mod manager ufficiale di Nexus Mods per centinaia di giochi",
+    "description_en": "Nexus Mods' official mod manager for hundreds of games",
+    "source": "github",
+    "repo": "Nexus-Mods/Vortex",
+    "assetPattern": "^vortex-setup-[\\d.]+\\.exe$",
+    "homepage": "https://www.nexusmods.com/about/vortex/",
+    "filename": "vortex-setup.exe",
+    "detectRegistry": [
+      "Vortex"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Black Tree Gaming Ltd/Vortex/Vortex.exe"
+    ],
+    "size": "~350MB"
+  },
+  {
+    "id": "retroarch",
+    "name": "RetroArch",
+    "description": "Frontend open source per emulatori, motori di gioco e media player",
+    "description_en": "Open source frontend for emulators, game engines and media players",
+    "downloadUrl": "https://buildbot.libretro.com/stable/1.22.2/windows/x86_64/RetroArch-Win64-setup.exe",
+    "homepage": "https://www.retroarch.com",
+    "filename": "RetroArch-Win64-setup.exe",
+    "detectRegistry": [
+      "RetroArch"
+    ],
+    "detectPaths": [
+      "C:/RetroArch-Win64/retroarch.exe"
+    ],
+    "size": "~200MB"
+  },
+  {
+    "id": "dolphin",
+    "name": "Dolphin Emulator",
+    "description": "Emulatore open source per Nintendo GameCube e Wii",
+    "description_en": "Open source emulator for Nintendo GameCube and Wii",
+    "downloadUrl": "https://dl.dolphin-emu.org/releases/2606/dolphin-2606-x64.7z",
+    "homepage": "https://dolphin-emu.org",
+    "filename": "dolphin-x64.7z",
+    "detectRegistry": [
+      "Dolphin"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Dolphin-x64/Dolphin.exe"
+    ],
+    "size": "~25MB"
+  },
+  {
+    "id": "pcsx2",
+    "name": "PCSX2",
+    "description": "Emulatore open source per PlayStation 2",
+    "description_en": "Open source PlayStation 2 emulator",
+    "source": "github",
+    "repo": "PCSX2/pcsx2",
+    "assetPattern": "^PCSX2-v[\\d.]+-windows-x64-installer\\.exe$",
+    "homepage": "https://pcsx2.net",
+    "filename": "PCSX2-installer.exe",
+    "detectRegistry": [
+      "PCSX2"
+    ],
+    "detectPaths": [
+      "C:/Program Files/PCSX2/pcsx2-qt.exe"
+    ],
+    "size": "~50MB"
+  },
+  {
+    "id": "rpcs3",
+    "name": "RPCS3",
+    "description": "Emulatore open source per PlayStation 3",
+    "description_en": "Open source PlayStation 3 emulator",
+    "source": "github",
+    "repo": "RPCS3/rpcs3-binaries-win",
+    "assetPattern": "^rpcs3-v[\\d.]+-[\\d]+-[0-9a-f]+_win64_msvc\\.7z$",
+    "homepage": "https://rpcs3.net",
+    "filename": "rpcs3-win64.7z",
+    "detectRegistry": [],
+    "detectPaths": [
+      "C:/rpcs3/rpcs3.exe"
+    ],
+    "size": "~40MB"
+  },
+  {
+    "id": "xenia-canary",
+    "name": "Xenia Canary",
+    "description": "Emulatore open source per Xbox 360 (branch canary sperimentale)",
+    "description_en": "Open source Xbox 360 emulator (experimental canary branch)",
+    "source": "github",
+    "repo": "xenia-canary/xenia-canary",
+    "assetPattern": "^xenia_canary_windows\\.7z$",
+    "homepage": "https://github.com/xenia-canary/xenia-canary",
+    "filename": "xenia_canary_windows.7z",
+    "detectRegistry": [],
+    "detectPaths": [
+      "C:/xenia-canary/xenia_canary.exe"
+    ],
+    "size": "~30MB"
+  },
+  {
+    "id": "logitech-g-hub",
+    "name": "Logitech G HUB",
+    "description": "Software ufficiale per mouse, tastiere e cuffie gaming Logitech G",
+    "description_en": "Official software for Logitech G gaming mice, keyboards and headsets",
+    "downloadUrl": "https://download01.logi.com/web/ftp/pub/techsupport/gaming/lghub_installer.exe",
+    "homepage": "https://www.logitechg.com/en-us/innovation/g-hub.html",
+    "filename": "lghub_installer.exe",
+    "detectRegistry": [
+      "Logitech G HUB"
+    ],
+    "detectPaths": [
+      "C:/Program Files/LGHUB/lghub.exe"
+    ],
+    "size": "~40MB"
+  },
+  {
+    "id": "razer-synapse",
+    "name": "Razer Synapse",
+    "description": "Software di configurazione per periferiche gaming Razer",
+    "description_en": "Configuration software for Razer gaming peripherals",
+    "downloadUrl": "https://rzr.to/synapse-3-pc-download",
+    "homepage": "https://www.razer.com/synapse-3",
+    "filename": "RazerSynapseInstaller.exe",
+    "detectRegistry": [
+      "Razer Synapse"
+    ],
+    "detectPaths": [
+      "C:/Program Files (x86)/Razer/Synapse 3/WPFUI/Framework/Razer Synapse 3 Host/Razer Synapse.exe"
+    ],
+    "size": "~15MB"
+  },
+  {
+    "id": "steelseries-gg",
+    "name": "SteelSeries GG",
+    "description": "Suite SteelSeries con Engine per periferiche e Moments per clip di gioco",
+    "description_en": "SteelSeries suite with Engine for peripherals and Moments for game clips",
+    "downloadUrl": "https://steelseries.com/gg",
+    "source": "browser",
+    "homepage": "https://steelseries.com/gg",
+    "filename": "SteelSeriesGGSetup.exe",
+    "detectRegistry": [
+      "SteelSeriesGG"
+    ],
+    "detectPaths": [
+      "C:/Program Files/SteelSeries/GG/SteelSeriesGG.exe"
+    ],
+    "size": "~150MB"
+  },
+  {
+    "id": "corsair-icue",
+    "name": "Corsair iCUE",
+    "description": "Software unificato per periferiche, illuminazione RGB e componenti Corsair",
+    "description_en": "Unified software for Corsair peripherals, RGB lighting and components",
+    "downloadUrl": "https://www3.corsair.com/software/CUE_V5/public/modules/windows/installer/Install%20iCUE.exe",
+    "homepage": "https://www.corsair.com/us/en/s/icue",
+    "filename": "Install_iCUE.exe",
+    "detectRegistry": [
+      "Corsair iCUE"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Corsair/Corsair iCUE5 Software/iCUE.exe"
+    ],
+    "size": "~5MB"
+  }
+]
