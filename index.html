@@ -12,6 +12,11 @@
     <aside id="sidebar">
       <div class="sidebar-title">Categorie</div>
       <nav class="sidebar-nav" id="sidebar-nav"></nav>
+      <div class="sidebar-groups-header">
+        <span class="sidebar-groups-title" id="groups-title">I miei gruppi</span>
+        <button id="new-group-btn" class="icon-btn" type="button" title="Nuovo gruppo">+</button>
+      </div>
+      <nav class="sidebar-nav groups-nav" id="groups-nav"></nav>
     </aside>
     <main id="content">
       <header id="header">
@@ -33,6 +38,36 @@
       <div id="cards-grid"></div>
     </main>
   </div>
+
+  <!-- Group create/edit modal -->
+  <div id="group-modal" class="modal-overlay" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="group-modal-title">Nuovo gruppo</h2>
+      </div>
+      <input type="text" id="group-name-input" class="modal-input" placeholder="Nome gruppo...">
+      <input type="text" id="group-search-input" class="modal-input" placeholder="Cerca software...">
+      <div id="group-software-list" class="modal-list"></div>
+      <div class="modal-footer">
+        <span id="group-selected-count" class="modal-count"></span>
+        <button id="group-cancel-btn" class="modal-btn" type="button">Annulla</button>
+        <button id="group-save-btn" class="modal-btn modal-btn-primary" type="button">Salva</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Install queue panel -->
+  <div id="queue-panel" hidden>
+    <div class="queue-header">
+      <span id="queue-title">Installazione gruppo</span>
+      <div class="queue-header-actions">
+        <button id="queue-cancel-btn" class="modal-btn" type="button">Annulla coda</button>
+        <button id="queue-close-btn" class="icon-btn" type="button" title="Chiudi">&#10005;</button>
+      </div>
+    </div>
+    <div id="queue-items"></div>
+  </div>
+
   <script src="renderer.js"></script>
 </body>
 </html>

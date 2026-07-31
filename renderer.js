@@ -18,9 +18,12 @@ const ICON_MAP = {
 
 // ----- State -----
 let currentCategory = null;
+let currentGroupId = null;
 let categories = [];
+let groups = [];
 const softwareData = {};
 const installedStatus = {};
+let queueActive = false;
 
 // ----- i18n -----
 let currentLang = localStorage.getItem('lang') || 'en';
@@ -43,6 +46,20 @@ const searchInput = document.getElementById('search');
 const updateBadge = document.getElementById('update-badge');
 const openDownloadsBtn = document.getElementById('open-downloads');
 const refreshInstalledBtn = document.getElementById('refresh-installed');
+const groupsNav = document.getElementById('groups-nav');
+const newGroupBtn = document.getElementById('new-group-btn');
+const groupModal = document.getElementById('group-modal');
+const groupModalTitle = document.getElementById('group-modal-title');
+const groupNameInput = document.getElementById('group-name-input');
+const groupSearchInput = document.getElementById('group-search-input');
+const groupSoftwareList = document.getElementById('group-software-list');
+const groupSelectedCount = document.getElementById('group-selected-count');
+const groupSaveBtn = document.getElementById('group-save-btn');
+const groupCancelBtn = document.getElementById('group-cancel-btn');
+const queuePanel = document.getElementById('queue-panel');
+const queueItems = document.getElementById('queue-items');
+const queueCancelBtn = document.getElementById('queue-cancel-btn');
+const queueCloseBtn = document.getElementById('queue-close-btn');
 
 // ============================================================
 // Initialization
@@ -52,6 +69,11 @@ async function init() {
   await loadI18n(currentLang);
   document.documentElement.lang = currentLang;
   updateToggleButtons();
+
+  // Apply i18n to static labels right away (sidebar titles, search placeholder)
+  document.querySelector('.sidebar-title').textContent = t('sidebar.title');
+  document.getElementById('groups-title').textContent = t('groups.title');
+  searchInput.placeholder = t('search.placeholder');
 
   try {
     // 1. Categories + all category JSONs + cached-installed in parallel.
@@ -91,6 +113,9 @@ async function init() {
     setupUpdateBadge();
     setupDownloadsButton();
     setupRefreshButton();
+    await loadGroups();
+    setupGroupModal();
+    setupQueuePanel();
 
     // 2. Fire the authoritative installed-scan in the background.
     //    If scan is already cached fresh from app-ready kickoff, this is instant.
@@ -161,12 +186,14 @@ async function loadCategoryCount(categoryId, countSpan) {
 
 async function selectCategory(categoryId) {
   currentCategory = categoryId;
+  currentGroupId = null;
 
   // Update active tab in sidebar
   const tabs = sidebarNav.querySelectorAll('.sidebar-tab');
   tabs.forEach(tab => {
     tab.classList.toggle('active', tab.dataset.categoryId === categoryId);
   });
+  groupsNav.querySelectorAll('.sidebar-tab').forEach(tab => tab.classList.remove('active'));
 
   // Update header title
   const cat = categories.find(c => c.id === categoryId);
@@ -424,6 +451,12 @@ function setupProgressListener() {
         progressText.style.display = '';
         progressText.textContent = `${Math.round(progress)}%`;
       }
+
+      // Mirror progress into the install-queue panel row, if present
+      const qStatus = queueItems.querySelector(`.queue-row[data-id="${id}"] .queue-status`);
+      if (qStatus && typeof progress === 'number') {
+        qStatus.textContent = `${Math.round(progress)}%`;
+      }
     });
   }
 }
@@ -442,7 +475,8 @@ function setupSearchHandler() {
         // Cross-category search: ensure all category data is loaded
         await ensureAllCategoriesLoaded();
       }
-      renderCards();
+      if (currentGroupId) renderGroupView();
+      else renderCards();
     }, 120);
   });
 }
@@ -655,8 +689,14 @@ async function switchLang(lang) {
   updateToggleButtons();
   document.getElementById('search').placeholder = t('search.placeholder');
   document.querySelector('.sidebar-title').textContent = t('sidebar.title');
+  document.getElementById('groups-title').textContent = t('groups.title');
   renderSidebar(categories);
-  if (currentCategory) {
+  renderGroupsNav();
+  if (currentGroupId) {
+    const group = groups.find(g => g.id === currentGroupId);
+    if (group) categoryTitle.textContent = group.name;
+    renderGroupView();
+  } else if (currentCategory) {
     const cat = categories.find(c => c.id === currentCategory);
     if (cat) {
       document.getElementById('category-title').textContent =
@@ -696,6 +736,325 @@ function showToast(message, type = 'info') {
       toast.remove();
     }
   }, 4000);
+}
+
+// ============================================================
+// Custom Groups (user "loadouts")
+// ============================================================
+
+async function loadGroups() {
+  if (window.electronAPI && window.electronAPI.groups) {
+    try {
+      groups = await window.electronAPI.groups.getAll();
+    } catch (err) {
+      console.error('Failed to load groups:', err);
+      groups = [];
+    }
+  }
+  renderGroupsNav();
+}
+
+function renderGroupsNav() {
+  groupsNav.innerHTML = '';
+  groups.forEach(g => {
+    const btn = document.createElement('button');
+    btn.className = 'sidebar-tab';
+    btn.dataset.groupId = g.id;
+    if (g.id === currentGroupId) btn.classList.add('active');
+
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'tab-icon';
+    iconSpan.textContent = '\u{1F4E6}';
+
+    const labelSpan = document.createElement('span');
+    labelSpan.className = 'tab-label';
+    labelSpan.textContent = g.name;
+
+    const countSpan = document.createElement('span');
+    countSpan.className = 'tab-count';
+    countSpan.textContent = g.softwareIds.length;
+
+    btn.appendChild(iconSpan);
+    btn.appendChild(labelSpan);
+    btn.appendChild(countSpan);
+    btn.addEventListener('click', () => selectGroup(g.id));
+    groupsNav.appendChild(btn);
+  });
+}
+
+function findSoftwareById(id) {
+  for (const list of Object.values(softwareData)) {
+    if (!Array.isArray(list)) continue;
+    const hit = list.find(sw => sw.id === id);
+    if (hit) return hit;
+  }
+  return null;
+}
+
+function getGroupSoftware(group) {
+  const seen = new Set();
+  const out = [];
+  for (const id of group.softwareIds) {
+    if (seen.has(id)) continue;
+    seen.add(id);
+    const sw = findSoftwareById(id);
+    if (sw) out.push(sw); // ids removed from the catalog are silently skipped
+  }
+  return out;
+}
+
+function selectGroup(groupId) {
+  const group = groups.find(g => g.id === groupId);
+  if (!group) return;
+  currentGroupId = groupId;
+  currentCategory = null;
+
+  sidebarNav.querySelectorAll('.sidebar-tab').forEach(tab => tab.classList.remove('active'));
+  groupsNav.querySelectorAll('.sidebar-tab').forEach(tab =>
+    tab.classList.toggle('active', tab.dataset.groupId === groupId));
+
+  categoryTitle.textContent = group.name;
+  searchInput.value = '';
+  renderGroupView();
+}
+
+function renderGroupView() {
+  const group = groups.find(g => g.id === currentGroupId);
+  if (!group) return;
+  cardsGrid.innerHTML = '';
+
+  // Action bar: install all / edit / delete
+  const bar = document.createElement('div');
+  bar.className = 'group-actions';
+
+  const installBtn = document.createElement('button');
+  installBtn.className = 'modal-btn modal-btn-primary';
+  installBtn.type = 'button';
+  installBtn.textContent = t('groups.installAll');
+  installBtn.title = t('groups.installAllHint');
+  installBtn.addEventListener('click', () => startQueue(group));
+
+  const editBtn = document.createElement('button');
+  editBtn.className = 'modal-btn';
+  editBtn.type = 'button';
+  editBtn.textContent = t('groups.edit');
+  editBtn.addEventListener('click', () => openGroupModal(group));
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.className = 'modal-btn modal-btn-danger';
+  deleteBtn.type = 'button';
+  deleteBtn.textContent = t('groups.delete');
+  deleteBtn.addEventListener('click', () => deleteGroup(group));
+
+  bar.appendChild(installBtn);
+  bar.appendChild(editBtn);
+  bar.appendChild(deleteBtn);
+  cardsGrid.appendChild(bar);
+
+  const term = searchInput.value.trim().toLowerCase();
+  const items = getGroupSoftware(group)
+    .filter(sw => !term || sw.name.toLowerCase().includes(term));
+
+  if (items.length === 0) {
+    const emptyDiv = document.createElement('div');
+    emptyDiv.className = 'empty-state';
+    emptyDiv.innerHTML = `
+      <div class="empty-state-icon">\u{1F4E6}</div>
+      <div class="empty-state-title">${t('empty.title')}</div>
+      <div class="empty-state-description">${t('groups.empty')}.</div>
+    `;
+    cardsGrid.appendChild(emptyDiv);
+    return;
+  }
+
+  items.forEach(sw => cardsGrid.appendChild(createCardElement(sw, null)));
+}
+
+// ----- Group create/edit modal -----
+
+let editingGroup = null;
+let modalSelection = new Set();
+
+function setupGroupModal() {
+  newGroupBtn.addEventListener('click', () => openGroupModal(null));
+  groupCancelBtn.addEventListener('click', closeGroupModal);
+  groupSaveBtn.addEventListener('click', saveGroupModal);
+  groupSearchInput.addEventListener('input', renderModalList);
+  groupModal.addEventListener('click', (e) => {
+    if (e.target === groupModal) closeGroupModal();
+  });
+}
+
+function openGroupModal(group) {
+  editingGroup = group;
+  modalSelection = new Set(group ? group.softwareIds : []);
+  groupModalTitle.textContent = group ? t('groups.edit') : t('groups.new');
+  groupNameInput.value = group ? group.name : '';
+  groupNameInput.placeholder = t('groups.namePlaceholder');
+  groupSearchInput.value = '';
+  groupSearchInput.placeholder = t('groups.searchPlaceholder');
+  groupSaveBtn.textContent = t('groups.save');
+  groupCancelBtn.textContent = t('groups.cancel');
+  renderModalList();
+  groupModal.hidden = false;
+  groupNameInput.focus();
+}
+
+function closeGroupModal() {
+  groupModal.hidden = true;
+  editingGroup = null;
+}
+
+function renderModalList() {
+  const term = groupSearchInput.value.trim().toLowerCase();
+  groupSoftwareList.innerHTML = '';
+
+  for (const cat of categories) {
+    const list = (softwareData[cat.id] || [])
+      .filter(sw => !term || sw.name.toLowerCase().includes(term));
+    if (!list.length) continue;
+
+    const header = document.createElement('div');
+    header.className = 'modal-cat';
+    header.textContent = currentLang === 'en' ? (cat.name_en || cat.name) : cat.name;
+    groupSoftwareList.appendChild(header);
+
+    for (const sw of list) {
+      const row = document.createElement('label');
+      row.className = 'modal-row';
+      if (installedStatus[sw.id] === true) row.classList.add('installed');
+      row.title = installedStatus[sw.id] === true ? t('toast.alreadyInstalled') : '';
+
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = modalSelection.has(sw.id);
+      cb.addEventListener('change', () => {
+        if (cb.checked) modalSelection.add(sw.id);
+        else modalSelection.delete(sw.id);
+        updateModalCount();
+      });
+
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = sw.name;
+
+      row.appendChild(cb);
+      row.appendChild(nameSpan);
+      groupSoftwareList.appendChild(row);
+    }
+  }
+  updateModalCount();
+}
+
+function updateModalCount() {
+  groupSelectedCount.textContent = `${modalSelection.size} ${t('groups.selected')}`;
+}
+
+async function saveGroupModal() {
+  const name = groupNameInput.value.trim();
+  if (!name) {
+    showToast(t('groups.nameRequired'), 'warning');
+    return;
+  }
+  const payload = { name, softwareIds: [...modalSelection] };
+  if (editingGroup) payload.id = editingGroup.id;
+
+  try {
+    const saved = await window.electronAPI.groups.save(payload);
+    const idx = groups.findIndex(g => g.id === saved.id);
+    if (idx >= 0) groups[idx] = saved;
+    else groups.push(saved);
+    closeGroupModal();
+    renderGroupsNav();
+    selectGroup(saved.id);
+  } catch (err) {
+    showToast(`${t('toast.error')}${err.message}`, 'error');
+  }
+}
+
+async function deleteGroup(group) {
+  if (!confirm(`${t('groups.deleteConfirm')} "${group.name}"?`)) return;
+  await window.electronAPI.groups.delete(group.id);
+  groups = groups.filter(g => g.id !== group.id);
+  renderGroupsNav();
+  if (categories.length > 0) selectCategory(categories[0].id);
+}
+
+// ============================================================
+// Install Queue Panel
+// ============================================================
+
+function setupQueuePanel() {
+  queueCloseBtn.addEventListener('click', () => {
+    queuePanel.hidden = true;
+  });
+
+  queueCancelBtn.addEventListener('click', async () => {
+    if (window.electronAPI && window.electronAPI.queue) {
+      await window.electronAPI.queue.cancel();
+      queueCancelBtn.disabled = true;
+    }
+  });
+
+  if (window.electronAPI && window.electronAPI.queue) {
+    window.electronAPI.queue.onUpdate((data) => {
+      if (data.id === '__queue__') {
+        queueActive = false;
+        queueCancelBtn.disabled = true;
+        showToast(t('queue.done'), 'success');
+        return;
+      }
+      const row = queueItems.querySelector(`.queue-row[data-id="${data.id}"]`);
+      if (!row) return;
+      row.dataset.state = data.state;
+      row.querySelector('.queue-status').textContent = t('queue.state.' + data.state);
+    });
+  }
+}
+
+async function startQueue(group) {
+  if (queueActive) {
+    showToast(t('queue.alreadyRunning'), 'warning');
+    return;
+  }
+  const items = getGroupSoftware(group).filter(sw => installedStatus[sw.id] !== true);
+  if (!items.length) {
+    showToast(t('queue.empty'), 'info');
+    return;
+  }
+
+  queueActive = true;
+  queueCancelBtn.disabled = false;
+  queueCancelBtn.textContent = t('queue.cancel');
+  document.getElementById('queue-title').textContent = `${t('queue.title')}: ${group.name}`;
+  queueItems.innerHTML = '';
+
+  items.forEach(sw => {
+    const row = document.createElement('div');
+    row.className = 'queue-row';
+    row.dataset.id = sw.id;
+    row.dataset.state = 'queued';
+
+    const nameSpan = document.createElement('span');
+    nameSpan.className = 'queue-name';
+    nameSpan.textContent = sw.name;
+
+    const statusSpan = document.createElement('span');
+    statusSpan.className = 'queue-status';
+    statusSpan.textContent = t('queue.state.queued');
+
+    row.appendChild(nameSpan);
+    row.appendChild(statusSpan);
+    queueItems.appendChild(row);
+  });
+
+  queuePanel.hidden = false;
+
+  try {
+    await window.electronAPI.queue.start('q' + Date.now(), items);
+  } catch (err) {
+    queueActive = false;
+    showToast(`${t('toast.error')}${err.message}`, 'error');
+  }
 }
 
 // ============================================================

@@ -9,6 +9,16 @@ contextBridge.exposeInMainWorld('electronAPI', {
   getDownloadsPath: () => ipcRenderer.invoke('get-downloads-path'),
   openDownloadsFolder: () => ipcRenderer.invoke('open-downloads-folder'),
   openExternal: (url) => ipcRenderer.invoke('open-external', url),
+  groups: {
+    getAll: () => ipcRenderer.invoke('groups:get-all'),
+    save: (group) => ipcRenderer.invoke('groups:save', group),
+    delete: (id) => ipcRenderer.invoke('groups:delete', id)
+  },
+  queue: {
+    start: (queueId, items) => ipcRenderer.invoke('queue:start', { queueId, items }),
+    cancel: () => ipcRenderer.invoke('queue:cancel'),
+    onUpdate: (callback) => ipcRenderer.on('queue:item-state', (_event, data) => callback(data))
+  },
   updates: {
     getState: () => ipcRenderer.invoke('update:get-state'),
     startDownload: () => ipcRenderer.invoke('update:start-download'),

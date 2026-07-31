@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, shell, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const https = require('https');
+const crypto = require('crypto');
 const { spawn, execSync } = require('child_process');
 const { autoUpdater } = require('electron-updater');
 
@@ -392,59 +393,248 @@ async function resolveDownloadUrl(software) {
 // Task 7: Download Engine - wget download + auto-launch installer
 // ============================================================
 
-ipcMain.handle('download-software', async (_event, software) => {
-  const downloadsPath = path.join(app.getPath('downloads'), 'SoftwareLoadout');
+// Core download routine shared by the single-download handler and the
+// install queue. Resolves the URL (static or GitHub), downloads via wget
+// to ~/Downloads/SoftwareLoadout and reports progress. Does NOT launch
+// anything — callers decide what to do with the file.
+function downloadToDisk(software) {
+  return new Promise((resolve, reject) => {
+    const downloadsPath = path.join(app.getPath('downloads'), 'SoftwareLoadout');
 
-  if (!fs.existsSync(downloadsPath)) {
-    fs.mkdirSync(downloadsPath, { recursive: true });
+    if (!fs.existsSync(downloadsPath)) {
+      fs.mkdirSync(downloadsPath, { recursive: true });
+    }
+
+    const outputPath = path.join(downloadsPath, software.filename);
+    const wgetPath = getWgetPath();
+
+    resolveDownloadUrl(software).then((downloadUrl) => {
+      const args = [
+        downloadUrl,
+        '-O', outputPath,
+        '--no-check-certificate',
+        '-q', '--show-progress'
+      ];
+
+      const proc = spawn(wgetPath, args);
+      if (activeQueue) activeQueue.wgetProc = proc;
+
+      proc.stderr.on('data', (data) => {
+        const output = data.toString();
+        const match = output.match(/(\d+)%/);
+        if (match && mainWindow) {
+          mainWindow.webContents.send('download-progress', {
+            id: software.id,
+            progress: parseInt(match[1])
+          });
+        }
+      });
+
+      proc.on('close', (code) => {
+        if (code === 0 && fs.existsSync(outputPath)) {
+          resolve(outputPath);
+        } else {
+          // Clean up partial download
+          try { fs.unlinkSync(outputPath); } catch {}
+          reject(new Error(`Download failed (exit code ${code})`));
+        }
+      });
+
+      proc.on('error', (err) => {
+        reject(new Error(`Failed to start wget: ${err.message}`));
+      });
+    }).catch(reject);
+  });
+}
+
+ipcMain.handle('download-software', async (_event, software) => {
+  const outputPath = await downloadToDisk(software);
+  // Auto-launch the installer (triggers UAC for .exe/.msi)
+  shell.openPath(outputPath).then((error) => {
+    if (error) {
+      console.error('Failed to launch installer:', error);
+    }
+  });
+  return { success: true, path: outputPath };
+});
+
+// ============================================================
+// Custom groups (user "loadouts") - stored in %AppData%/groups.json
+// ============================================================
+
+function groupsPath() {
+  return path.join(app.getPath('userData'), 'groups.json');
+}
+
+function readGroups() {
+  try {
+    const parsed = JSON.parse(fs.readFileSync(groupsPath(), 'utf8'));
+    return Array.isArray(parsed.groups) ? parsed.groups : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeGroups(groups) {
+  try {
+    fs.writeFileSync(groupsPath(), JSON.stringify({ groups }, null, 2));
+  } catch (err) {
+    console.error('Failed to write groups:', err);
+  }
+}
+
+ipcMain.handle('groups:get-all', () => readGroups());
+
+ipcMain.handle('groups:save', (_event, group) => {
+  const groups = readGroups();
+  const name = String(group.name || '').trim();
+  const softwareIds = Array.isArray(group.softwareIds)
+    ? group.softwareIds.filter(id => typeof id === 'string')
+    : [];
+
+  if (group.id) {
+    const i = groups.findIndex(g => g.id === group.id);
+    if (i >= 0) {
+      groups[i] = { ...groups[i], name, softwareIds };
+      writeGroups(groups);
+      return groups[i];
+    }
   }
 
-  const outputPath = path.join(downloadsPath, software.filename);
-  const wgetPath = getWgetPath();
+  const created = { id: crypto.randomUUID(), name, softwareIds, createdAt: Date.now() };
+  groups.push(created);
+  writeGroups(groups);
+  return created;
+});
 
-  const downloadUrl = await resolveDownloadUrl(software);
+ipcMain.handle('groups:delete', (_event, id) => {
+  writeGroups(readGroups().filter(g => g.id !== id));
+  return true;
+});
 
-  return new Promise((resolve, reject) => {
-    const args = [
-      downloadUrl,
-      '-O', outputPath,
-      '--no-check-certificate',
-      '-q', '--show-progress'
-    ];
+// ============================================================
+// Install queue - serial setup execution with download-ahead-1
+// One installer at a time (spawn + wait for exit); the next download
+// runs in the background while the current setup is open.
+// ============================================================
 
-    const proc = spawn(wgetPath, args);
+let activeQueue = null; // { queueId, cancelRequested, wgetProc }
 
-    proc.stderr.on('data', (data) => {
-      const output = data.toString();
-      const match = output.match(/(\d+)%/);
-      if (match && mainWindow) {
-        mainWindow.webContents.send('download-progress', {
-          id: software.id,
-          progress: parseInt(match[1])
-        });
-      }
+function sendQueue(itemId, state, extra = {}) {
+  if (activeQueue && mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.webContents.send('queue:item-state', {
+      queueId: activeQueue.queueId,
+      id: itemId,
+      state,
+      ...extra
     });
+  }
+}
 
-    proc.on('close', (code) => {
-      if (code === 0 && fs.existsSync(outputPath)) {
-        // Auto-launch the installer (triggers UAC for .exe/.msi)
-        shell.openPath(outputPath).then((error) => {
-          if (error) {
-            console.error('Failed to launch installer:', error);
-          }
-        });
-        resolve({ success: true, path: outputPath });
+function launchInstallerAndWait(filePath) {
+  return new Promise((resolve) => {
+    let proc;
+    try {
+      if (/\.msi$/i.test(filePath)) {
+        proc = spawn('msiexec', ['/i', filePath]);
       } else {
-        // Clean up partial download
-        try { fs.unlinkSync(outputPath); } catch {}
-        reject(new Error(`Download failed (exit code ${code})`));
+        proc = spawn(filePath, []);
       }
-    });
-
-    proc.on('error', (err) => {
-      reject(new Error(`Failed to start wget: ${err.message}`));
-    });
+    } catch {
+      resolve();
+      return;
+    }
+    const done = () => resolve();
+    proc.on('error', done);
+    proc.on('exit', done);
   });
+}
+
+ipcMain.handle('queue:start', (_event, payload) => {
+  const { queueId, items } = payload || {};
+  if (activeQueue) throw new Error('Queue already running');
+  if (!Array.isArray(items) || !items.length) throw new Error('Empty queue');
+
+  activeQueue = { queueId, cancelRequested: false, wgetProc: null };
+
+  (async () => {
+    let preStarted = null; // { sw, promise }
+
+    // Pre-start the download of the next downloadable item, marking
+    // browser-source entries as skipped along the way.
+    const startNext = (fromIdx) => {
+      preStarted = null;
+      for (let j = fromIdx; j < items.length; j++) {
+        const sw = items[j];
+        if (sw.source === 'browser') {
+          sendQueue(sw.id, 'skipped-browser');
+          continue;
+        }
+        sendQueue(sw.id, 'downloading');
+        preStarted = {
+          sw,
+          promise: downloadToDisk(sw)
+            .then(p => ({ ok: true, path: p }))
+            .catch(e => ({ ok: false, error: e }))
+        };
+        return;
+      }
+    };
+
+    startNext(0);
+
+    for (let i = 0; i < items.length; i++) {
+      const sw = items[i];
+      if (sw.source === 'browser') continue; // already marked by startNext
+
+      if (activeQueue.cancelRequested) {
+        sendQueue(sw.id, 'cancelled');
+        continue;
+      }
+
+      // Consume the pre-started download (fallback: download now)
+      let dl;
+      if (preStarted && preStarted.sw.id === sw.id) {
+        dl = await preStarted.promise;
+      } else {
+        sendQueue(sw.id, 'downloading');
+        dl = await downloadToDisk(sw)
+          .then(p => ({ ok: true, path: p }))
+          .catch(e => ({ ok: false, error: e }));
+      }
+
+      if (!dl.ok) {
+        sendQueue(sw.id, 'error', { message: String((dl.error && dl.error.message) || dl.error) });
+        startNext(i + 1);
+        continue;
+      }
+
+      // Download-ahead-1: fetch the next item while this setup runs
+      startNext(i + 1);
+
+      if (!/\.(exe|msi)$/i.test(dl.path)) {
+        // Archives (zip/7z/msixbundle) can't be auto-installed
+        sendQueue(sw.id, 'downloaded-only', { path: dl.path });
+        continue;
+      }
+
+      sendQueue(sw.id, 'installing');
+      await launchInstallerAndWait(dl.path);
+      sendQueue(sw.id, 'done');
+    }
+
+    sendQueue('__queue__', 'queue-finished');
+    activeQueue = null;
+  })();
+
+  return { started: true };
+});
+
+ipcMain.handle('queue:cancel', () => {
+  if (!activeQueue) return false;
+  activeQueue.cancelRequested = true;
+  try { if (activeQueue.wgetProc) activeQueue.wgetProc.kill(); } catch {}
+  return true;
 });
 
 ipcMain.handle('get-downloads-path', () => {
