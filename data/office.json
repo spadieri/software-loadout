@@ -3,7 +3,7 @@
     "id": "libreoffice",
     "name": "LibreOffice",
     "description": "Suite office completa open source alternativa a Microsoft Office",
-    "downloadUrl": "https://download.documentfoundation.org/libreoffice/stable/25.8.5/win/x86_64/LibreOffice_25.8.5_Win_x86-64.msi",
+    "downloadUrl": "https://ftp.halifax.rwth-aachen.de/tdf/libreoffice/stable/26.2.5/win/x86_64/LibreOffice_26.2.5_Win_x86-64.msi",
     "homepage": "https://www.libreoffice.org",
     "filename": "LibreOffice_Win_x86-64.msi",
     "detectRegistry": [
@@ -36,9 +36,9 @@
     "id": "freeoffice",
     "name": "FreeOffice",
     "description": "Suite office gratuita di SoftMaker con alta compatibilità MS Office",
-    "downloadUrl": "https://www.freeoffice.com/download.php?id=430982",
+    "downloadUrl": "https://www.softmaker.net/down/freeoffice2024.msi",
     "homepage": "https://www.freeoffice.com",
-    "filename": "FreeOffice2024.exe",
+    "filename": "FreeOffice2024.msi",
     "detectRegistry": [
       "SoftMaker FreeOffice"
     ],
@@ -52,7 +52,7 @@
     "id": "wps-office",
     "name": "WPS Office",
     "description": "Suite office gratuita leggera con interfaccia simile a MS Office",
-    "downloadUrl": "https://www.wps.com/office/windows/",
+    "downloadUrl": "https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/11.2.0.10223/WPSOffice_11.2.0.10223.exe",
     "homepage": "https://www.wps.com",
     "filename": "WPSOffice_Setup.exe",
     "detectRegistry": [
@@ -107,38 +107,6 @@
     "description_en": "Historic open source office suite with Writer, Calc and Impress"
   },
   {
-    "id": "calligra",
-    "name": "Calligra Suite",
-    "description": "Suite office KDE con Words, Sheets, Stage e strumenti creativi",
-    "downloadUrl": "https://calligra.org/download/",
-    "homepage": "https://calligra.org",
-    "filename": "calligra-setup.exe",
-    "detectRegistry": [
-      "Calligra"
-    ],
-    "detectPaths": [
-      "C:/Program Files/Calligra/bin/calligrawords.exe"
-    ],
-    "size": "~200MB",
-    "description_en": "KDE office suite with Words, Sheets, Stage and creative tools"
-  },
-  {
-    "id": "abiword",
-    "name": "AbiWord",
-    "description": "Word processor open source leggero e veloce",
-    "downloadUrl": "https://sourceforge.net/projects/abiword/",
-    "homepage": "https://www.abisource.com",
-    "filename": "abiword-setup-3.0.5.exe",
-    "detectRegistry": [
-      "AbiWord"
-    ],
-    "detectPaths": [
-      "C:/Program Files (x86)/AbiWord/bin/AbiWord.exe"
-    ],
-    "size": "~10MB",
-    "description_en": "Lightweight and fast open source word processor"
-  },
-  {
     "id": "sumatrapdf",
     "name": "SumatraPDF",
     "description": "Lettore PDF ultraleggero e veloce con supporto multi-formato",
@@ -158,7 +126,7 @@
     "id": "acrobat-reader",
     "name": "Adobe Acrobat Reader",
     "description": "Lettore PDF standard con annotazioni e firma digitale",
-    "downloadUrl": "https://get.adobe.com/reader/",
+    "downloadUrl": "https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2600121483/AcroRdrDCx642600121483_MUI.exe",
     "homepage": "https://www.adobe.com/acrobat/pdf-reader.html",
     "filename": "AcroRdrDC_Setup.exe",
     "detectRegistry": [
@@ -174,9 +142,9 @@
     "id": "foxit-reader",
     "name": "Foxit PDF Reader",
     "description": "Lettore PDF veloce con funzionalità di annotazione avanzate",
-    "downloadUrl": "https://www.foxit.com/pdf-reader/",
+    "downloadUrl": "https://cdn01.foxitsoftware.com/product/reader/desktop/win/2025.3.0/FoxitPDFReader20253_L10N_Setup_x64.exe",
     "homepage": "https://www.foxit.com/pdf-reader/",
-    "filename": "FoxitPDFReader-Setup.exe",
+    "filename": "FoxitPDFReader_Setup_x64.exe",
     "detectRegistry": [
       "Foxit PDF Reader"
     ],
@@ -190,9 +158,9 @@
     "id": "pdf-xchange",
     "name": "PDF-XChange Editor",
     "description": "Editor PDF ricco di funzionalità con OCR e annotazioni",
-    "downloadUrl": "https://www.tracker-software.com/product/downloads/PDFXE-latest-x64.exe",
+    "downloadUrl": "https://downloads.pdf-xchange.com/PDFXVE10.exe",
     "homepage": "https://www.tracker-software.com",
-    "filename": "PDFXE-latest-x64.exe",
+    "filename": "PDFXVE10.exe",
     "detectRegistry": [
       "PDF-XChange Editor"
     ],
@@ -203,26 +171,10 @@
     "description_en": "Feature-rich PDF editor with OCR and annotations"
   },
   {
-    "id": "nitro-pdf",
-    "name": "Nitro PDF Pro (Trial)",
-    "description": "Editor PDF professionale con conversione e firma digitale",
-    "downloadUrl": "https://www.gonitro.com/documentation/product-downloads",
-    "homepage": "https://www.gonitro.com",
-    "filename": "nitro_pro_setup.exe",
-    "detectRegistry": [
-      "Nitro Pro"
-    ],
-    "detectPaths": [
-      "C:/Program Files/Nitro/Pro/NitroPDF.exe"
-    ],
-    "size": "~500MB",
-    "description_en": "Professional PDF editor with conversion and digital signatures"
-  },
-  {
     "id": "okular",
     "name": "Okular",
     "description": "Visualizzatore di documenti KDE multi-formato open source",
-    "downloadUrl": "https://apps.kde.org/okular/",
+    "downloadUrl": "https://cdn.kde.org/ci-builds/graphics/okular/release-26.04/windows/okular-release_26.04-7510-windows-cl-msvc2022-x86_64.exe",
     "homepage": "https://okular.kde.org",
     "filename": "okular-setup.exe",
     "detectRegistry": [
@@ -233,6 +185,42 @@
     ],
     "size": "~80MB",
     "description_en": "KDE multi-format document viewer, open source"
+  },
+  {
+    "id": "xournalpp",
+    "name": "Xournal++",
+    "description": "App per note scritte a mano e annotazione PDF con supporto penna",
+    "source": "github",
+    "repo": "xournalpp/xournalpp",
+    "assetPattern": "^xournalpp-[\\d.]+-windows-setup-AMD64\\.exe$",
+    "homepage": "https://xournalpp.github.io",
+    "filename": "xournalpp-setup.exe",
+    "detectRegistry": [
+      "Xournal++"
+    ],
+    "detectPaths": [
+      "C:/Program Files/Xournal++/bin/xournalpp.exe"
+    ],
+    "size": "~50MB",
+    "description_en": "Handwritten note-taking and PDF annotation app with pen support"
+  },
+  {
+    "id": "pdfsam",
+    "name": "PDFsam Basic",
+    "description": "Strumento open source per unire, dividere e riorganizzare file PDF",
+    "source": "github",
+    "repo": "torakiki/pdfsam",
+    "assetPattern": "^pdfsam-basic-[\\d.]+-windows-x64\\.msi$",
+    "homepage": "https://pdfsam.org",
+    "filename": "pdfsam-basic.msi",
+    "detectRegistry": [
+      "PDFsam Basic"
+    ],
+    "detectPaths": [
+      "C:/Program Files/PDFsam Basic/pdfsam.exe"
+    ],
+    "size": "~60MB",
+    "description_en": "Open source tool to merge, split and reorganize PDF files"
   },
   {
     "id": "calibre",
@@ -270,7 +258,7 @@
     "id": "mendeley",
     "name": "Mendeley Reference Manager",
     "description": "Gestore di riferimenti bibliografici con lettore PDF integrato",
-    "downloadUrl": "https://www.mendeley.com/download-reference-manager/windows",
+    "downloadUrl": "https://static.mendeley.com/bin/desktop/mendeley-reference-manager-2.131.0-x64.exe",
     "homepage": "https://www.mendeley.com",
     "filename": "Mendeley-Reference-Manager-Setup.exe",
     "detectRegistry": [
@@ -288,8 +276,8 @@
     "description": "Gestore di riferimenti bibliografici BibTeX open source",
     "source": "github",
     "repo": "JabRef/jabref",
-    "assetPattern": "^JabRef-[\\d.]+-portable_windows\\.zip$",
-    "filename": "jabref-portable.zip",
+    "assetPattern": "^JabRef-[\\d.]+\\.msi$",
+    "filename": "jabref-setup.msi",
     "detectRegistry": [
       "JabRef"
     ],
@@ -365,7 +353,7 @@
     "description": "Editor Markdown open source semplice e elegante",
     "source": "github",
     "repo": "marktext/marktext",
-    "assetPattern": "^marktext-setup\\.exe$",
+    "assetPattern": "^marktext-win-x64-[\\d.]+-setup\\.exe$",
     "filename": "marktext-setup.exe",
     "detectRegistry": [
       "Mark Text"
@@ -375,22 +363,6 @@
     ],
     "size": "~90MB",
     "description_en": "Simple and elegant open source Markdown editor"
-  },
-  {
-    "id": "ghostwriter",
-    "name": "Ghostwriter",
-    "description": "Editor Markdown minimalista e senza distrazioni per scrittori",
-    "downloadUrl": "https://ghostwriter.kde.org/download/",
-    "homepage": "https://ghostwriter.kde.org",
-    "filename": "ghostwriter-setup.exe",
-    "detectRegistry": [
-      "ghostwriter"
-    ],
-    "detectPaths": [
-      "C:/Program Files/ghostwriter/ghostwriter.exe"
-    ],
-    "size": "~60MB",
-    "description_en": "Minimalist distraction-free Markdown editor for writers"
   },
   {
     "id": "obsidian-office",
@@ -431,7 +403,7 @@
     "description": "App di knowledge management open source basata su blocchi e grafi",
     "source": "github",
     "repo": "logseq/logseq",
-    "assetPattern": "^Logseq-win-x64-[\\d.]+\\.exe$",
+    "assetPattern": "^Logseq-win-x64-[\\d.]+-nsis\\.exe$",
     "filename": "logseq-setup.exe",
     "detectRegistry": [
       "Logseq"
@@ -460,10 +432,28 @@
     "description_en": "Markdown editor for academic research with citations and Zettelkasten"
   },
   {
+    "id": "joplin",
+    "name": "Joplin",
+    "description": "App per appunti open source con Markdown, sincronizzazione e crittografia E2E",
+    "source": "github",
+    "repo": "laurent22/joplin",
+    "assetPattern": "^Joplin-Setup-[\\d.]+\\.exe$",
+    "homepage": "https://joplinapp.org",
+    "filename": "joplin-setup.exe",
+    "detectRegistry": [
+      "Joplin"
+    ],
+    "detectPaths": [
+      "C:/Users/%USERNAME%/AppData/Local/Programs/Joplin/Joplin.exe"
+    ],
+    "size": "~200MB",
+    "description_en": "Open source note-taking app with Markdown, sync and E2E encryption"
+  },
+  {
     "id": "scrivener",
     "name": "Scrivener (Trial)",
     "description": "Software di scrittura professionale per autori e sceneggiatori",
-    "downloadUrl": "https://www.literatureandlatte.com/scrivener/download",
+    "downloadUrl": "https://scrivener.s3.amazonaws.com/Scrivener-installer.exe",
     "homepage": "https://www.literatureandlatte.com/scrivener/",
     "filename": "Scrivener-installer.exe",
     "detectRegistry": [
@@ -561,9 +551,9 @@
     "id": "balsamiq",
     "name": "Balsamiq Wireframes (Trial)",
     "description": "Strumento di wireframing rapido con stile sketch a mano",
-    "downloadUrl": "https://balsamiq.com/wireframes/desktop/",
+    "downloadUrl": "https://builds.balsamiq.com/bwd/Balsamiq_Wireframes_4.8.6_x64_Setup.exe",
     "homepage": "https://balsamiq.com",
-    "filename": "Balsamiq_Wireframes_Setup.exe",
+    "filename": "Balsamiq_Wireframes_4.8.6_x64_Setup.exe",
     "detectRegistry": [
       "Balsamiq Wireframes"
     ],
@@ -577,7 +567,7 @@
     "id": "xmind",
     "name": "XMind",
     "description": "Software di mappe mentali professionale con template e temi",
-    "downloadUrl": "https://xmind.com/download",
+    "downloadUrl": "https://www.xmind.cn/zen/download/win64/",
     "homepage": "https://xmind.com",
     "filename": "XMind-Setup.exe",
     "detectRegistry": [
@@ -590,20 +580,22 @@
     "description_en": "Professional mind mapping software with templates and themes"
   },
   {
-    "id": "freemind",
-    "name": "FreeMind",
-    "description": "Software di mappe mentali open source e gratuito scritto in Java",
-    "downloadUrl": "https://sourceforge.net/projects/freemind/files/freemind/1.0.1/FreeMind-Windows-Installer-1.0.1-max.exe/download",
-    "homepage": "https://freemind.sourceforge.net",
-    "filename": "FreeMind-Windows-Installer.exe",
+    "id": "freeplane",
+    "name": "Freeplane",
+    "description": "Software di mappe mentali open source, successore di FreeMind",
+    "source": "github",
+    "repo": "freeplane/freeplane",
+    "assetPattern": "^Freeplane-Setup-[\\d.]+\\.exe$",
+    "homepage": "https://www.freeplane.org",
+    "filename": "freeplane-setup.exe",
     "detectRegistry": [
-      "FreeMind"
+      "Freeplane"
     ],
     "detectPaths": [
-      "C:/Program Files/FreeMind/FreeMind.exe"
+      "C:/Program Files/Freeplane/freeplane.exe"
     ],
-    "size": "~40MB",
-    "description_en": "Free and open source mind mapping software written in Java"
+    "size": "~130MB",
+    "description_en": "Open source mind mapping software, successor of FreeMind"
   },
   {
     "id": "mindmeister",
@@ -653,7 +645,6 @@
     "id": "toggl-track",
     "name": "Toggl Track",
     "description": "App di time tracking semplice per freelancer e team",
-    "downloadUrl": "https://toggl.com/track/toggl-desktop/",
     "homepage": "https://toggl.com/track/",
     "filename": "TogglTrack-Setup.exe",
     "detectRegistry": [
@@ -663,23 +654,10 @@
       "C:/Users/Pd85/AppData/Local/Programs/toggl-track/Toggl Track.exe"
     ],
     "size": "~80MB",
-    "description_en": "Simple time tracking app for freelancers and teams"
-  },
-  {
-    "id": "clockify",
-    "name": "Clockify",
-    "description": "App di time tracking gratuita per team con report dettagliati",
-    "downloadUrl": "https://clockify.me/apps",
-    "homepage": "https://clockify.me",
-    "filename": "ClockifySetup.exe",
-    "detectRegistry": [
-      "Clockify"
-    ],
-    "detectPaths": [
-      "C:/Users/Pd85/AppData/Local/Programs/Clockify/Clockify.exe"
-    ],
-    "size": "~80MB",
-    "description_en": "Free team time tracking app with detailed reports"
+    "description_en": "Simple time tracking app for freelancers and teams",
+    "source": "github",
+    "repo": "toggl-open-source/toggldesktop",
+    "assetPattern": "^TogglDesktopInstaller-x64-[\\d.]+\\.exe$"
   },
   {
     "id": "rescuetime",
@@ -701,9 +679,9 @@
     "id": "cold-turkey",
     "name": "Cold Turkey",
     "description": "Blocca siti web e app per migliorare concentrazione e produttività",
-    "downloadUrl": "https://getcoldturkey.com/files/ColdTurkeyInstaller.exe",
+    "downloadUrl": "https://getcoldturkey.com/files/Cold_Turkey_Installer.exe",
     "homepage": "https://getcoldturkey.com",
-    "filename": "ColdTurkeyInstaller.exe",
+    "filename": "Cold_Turkey_Installer.exe",
     "detectRegistry": [
       "Cold Turkey Blocker"
     ],
@@ -717,8 +695,8 @@
     "id": "focus-to-do",
     "name": "Focus To-Do",
     "description": "Timer Pomodoro combinato con gestore di attività e to-do list",
-    "downloadUrl": "https://www.focustodo.cn/",
-    "filename": "FocusTodo-Setup.exe",
+    "downloadUrl": "https://www.focustodo.cn/downloads/Focus%20To-Do(en).zip",
+    "filename": "Focus-To-Do.zip",
     "detectRegistry": [
       "Focus To-Do"
     ],
@@ -745,8 +723,8 @@
     "description": "Software di flashcard con ripetizione spaziata per memorizzazione",
     "source": "github",
     "repo": "ankitects/anki",
-    "assetPattern": "^anki-launcher-.+-windows\\.exe$",
-    "filename": "anki-setup.exe",
+    "assetPattern": "^anki-[\\d.]+-win-x64\\.msi$",
+    "filename": "anki-setup.msi",
     "detectRegistry": [
       "Anki"
     ],
