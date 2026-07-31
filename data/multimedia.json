@@ -49,26 +49,10 @@
     "description_en": "Advanced media player with DXVA hardware acceleration"
   },
   {
-    "id": "kmplayer",
-    "name": "KMPlayer",
-    "description": "Lettore multimediale versatile con supporto 3D e 4K",
-    "downloadUrl": "https://www.kmplayer.com/down/KMPlayer64X.exe",
-    "homepage": "https://www.kmplayer.com",
-    "filename": "KMPlayer64X.exe",
-    "detectRegistry": [
-      "KMPlayer"
-    ],
-    "detectPaths": [
-      "C:/Program Files/KMPlayer/KMPlayer.exe"
-    ],
-    "size": "~45MB",
-    "description_en": "Versatile media player with 3D and 4K support"
-  },
-  {
     "id": "gom-player",
     "name": "GOM Player",
     "description": "Lettore multimediale con ricerca automatica di codec e sottotitoli",
-    "downloadUrl": "https://www.gomlab.com/en/gomplayer-media-player",
+    "downloadUrl": "https://cdn.gomlab.com/gretech/player/GOMPLAYERGLOBALSETUP_NEW.EXE",
     "homepage": "https://www.gomlab.com/gomplayer-media-player/",
     "filename": "GOMPlayerGlobalSetup.exe",
     "detectRegistry": [
@@ -114,9 +98,9 @@
     "id": "plex",
     "name": "Plex",
     "description": "Server e client multimediale per organizzare e trasmettere contenuti",
-    "downloadUrl": "https://www.plex.tv/media-server-downloads/?cat=computer&plat=windows",
+    "downloadUrl": "https://downloads.plex.tv/plex-media-server-new/1.43.3.10828-00f62d37d/windows/PlexMediaServer-1.43.3.10828-00f62d37d-x86_64.exe",
     "homepage": "https://www.plex.tv",
-    "filename": "Plex-Media-Server-Setup.exe",
+    "filename": "PlexMediaServer-x86_64.exe",
     "detectRegistry": [
       "Plex Media Server"
     ],
@@ -130,9 +114,9 @@
     "id": "jellyfin",
     "name": "Jellyfin",
     "description": "Server multimediale open source e gratuito, alternativa a Plex",
-    "downloadUrl": "https://repo.jellyfin.org/files/server/windows/latest-stable/amd64/jellyfin_10.11.6_windows-x64.exe",
+    "downloadUrl": "https://repo.jellyfin.org/files/server/windows/latest-stable/amd64/jellyfin_10.11.11_windows-x64.exe",
     "homepage": "https://jellyfin.org",
-    "filename": "jellyfin_10.11.6_windows-x64.exe",
+    "filename": "jellyfin_10.11.11_windows-x64.exe",
     "detectRegistry": [
       "Jellyfin Server"
     ],
@@ -146,14 +130,14 @@
     "id": "stremio",
     "name": "Stremio",
     "description": "Hub multimediale per guardare video con add-on personalizzabili",
-    "downloadUrl": "https://www.stremio.com/downloads",
+    "downloadUrl": "https://dl.strem.io/stremio-shell-ng/v5.0.24/StremioSetup-v5.0.24_x64.exe",
     "homepage": "https://www.stremio.com",
-    "filename": "StremioSetup.exe",
+    "filename": "StremioSetup-x64.exe",
     "detectRegistry": [
       "Stremio"
     ],
     "detectPaths": [
-      "C:/Users/%USERNAME%/AppData/Local/Programs/LNV/Stremio-4/stremio.exe"
+      "C:/Users/%USERNAME%/AppData/Local/Programs/Stremio/Stremio.exe"
     ],
     "size": "~65MB",
     "description_en": "Media hub for watching videos with customizable add-ons"
@@ -191,26 +175,10 @@
     "description_en": "Apple's media player and music store"
   },
   {
-    "id": "winamp",
-    "name": "Winamp",
-    "description": "Lettore musicale classico e iconico con supporto skin e plugin",
-    "downloadUrl": "https://www.winamp.com/download",
-    "homepage": "https://www.winamp.com",
-    "filename": "WinampSetup.exe",
-    "detectRegistry": [
-      "Winamp"
-    ],
-    "detectPaths": [
-      "C:/Program Files/Winamp/winamp.exe"
-    ],
-    "size": "~15MB",
-    "description_en": "Classic and iconic music player with skin and plugin support"
-  },
-  {
     "id": "foobar2000",
     "name": "foobar2000",
     "description": "Lettore audio avanzato e personalizzabile per Windows",
-    "downloadUrl": "https://www.foobar2000.org/getfile/foobar2000-x64_v2.1.6.exe",
+    "downloadUrl": "https://www.foobar2000.org/files/foobar2000-x64_v2.25.exe",
     "homepage": "https://www.foobar2000.org",
     "filename": "foobar2000-x64.exe",
     "detectRegistry": [
@@ -237,22 +205,6 @@
     ],
     "size": "~20MB",
     "description_en": "Lightweight music player with built-in equalizer and converter"
-  },
-  {
-    "id": "musicbee",
-    "name": "MusicBee",
-    "description": "Gestore e lettore musicale potente con interfaccia personalizzabile",
-    "downloadUrl": "https://www.getmusicbee.com/downloads/",
-    "homepage": "https://www.getmusicbee.com",
-    "filename": "MusicBeeSetup_3_6.zip",
-    "detectRegistry": [
-      "MusicBee"
-    ],
-    "detectPaths": [
-      "C:/Program Files/MusicBee/MusicBee.exe"
-    ],
-    "size": "~20MB",
-    "description_en": "Powerful music manager and player with customizable interface"
   },
   {
     "id": "audacity",
@@ -291,7 +243,7 @@
     "id": "fl-studio",
     "name": "FL Studio (trial)",
     "description": "DAW professionale per produzione musicale e beat making",
-    "downloadUrl": "https://www.image-line.com/fl-studio-download/",
+    "downloadUrl": "https://support.image-line.com/redirect/flstudio_win_installer",
     "homepage": "https://www.image-line.com",
     "filename": "flstudio_win64_setup.exe",
     "detectRegistry": [
@@ -352,22 +304,6 @@
     ],
     "size": "~280MB",
     "description_en": "All-in-one streaming platform based on OBS"
-  },
-  {
-    "id": "xsplit",
-    "name": "XSplit Broadcaster",
-    "description": "Software professionale per streaming live e registrazione",
-    "downloadUrl": "https://www.xsplit.com/download",
-    "homepage": "https://www.xsplit.com",
-    "filename": "XSplit_Broadcaster_Setup.exe",
-    "detectRegistry": [
-      "XSplit Broadcaster"
-    ],
-    "detectPaths": [
-      "C:/Program Files/XSplit/Broadcaster/XSplit.Core.exe"
-    ],
-    "size": "~200MB",
-    "description_en": "Professional software for live streaming and recording"
   },
   {
     "id": "lightshot",
@@ -484,51 +420,20 @@
     "description_en": "Open source vector graphics editor, alternative to Illustrator"
   },
   {
-    "id": "photopea",
-    "name": "Photopea (desktop)",
-    "description": "Editor di immagini avanzato basato su web, compatibile con PSD",
-    "downloadUrl": "https://www.photopea.com/",
-    "filename": "photopea-desktop.exe",
-    "detectRegistry": [
-      "Photopea"
-    ],
-    "detectPaths": [
-      "C:/Users/%USERNAME%/AppData/Local/Programs/Photopea/Photopea.exe"
-    ],
-    "size": "~5MB",
-    "description_en": "Advanced web-based image editor, compatible with PSD"
-  },
-  {
     "id": "blender",
     "name": "Blender",
     "description": "Suite di creazione 3D open source per modellazione e animazione",
-    "downloadUrl": "https://download.blender.org/release/Blender4.3/blender-4.3.0-windows-x64.msi",
+    "downloadUrl": "https://ftp.nluug.nl/pub/graphics/blender/release/Blender5.2/blender-5.2.0-windows-x64.msi",
     "homepage": "https://www.blender.org",
-    "filename": "blender-4.3.0-windows-x64.msi",
+    "filename": "blender-5.2.0-windows-x64.msi",
     "detectRegistry": [
       "Blender"
     ],
     "detectPaths": [
-      "C:/Program Files/Blender Foundation/Blender 4.3/blender.exe"
+      "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe"
     ],
-    "size": "~360MB",
+    "size": "~380MB",
     "description_en": "Open source 3D creation suite for modeling and animation"
-  },
-  {
-    "id": "davinci-resolve",
-    "name": "DaVinci Resolve",
-    "description": "Software professionale per montaggio video e color grading",
-    "downloadUrl": "https://www.blackmagicdesign.com/products/davinciresolve",
-    "homepage": "https://www.blackmagicdesign.com/products/davinciresolve",
-    "filename": "DaVinci_Resolve_Windows.zip",
-    "detectRegistry": [
-      "DaVinci Resolve"
-    ],
-    "detectPaths": [
-      "C:/Program Files/Blackmagic Design/DaVinci Resolve/Resolve.exe"
-    ],
-    "size": "~2.5GB",
-    "description_en": "Professional software for video editing and color grading"
   },
   {
     "id": "shotcut",
@@ -650,8 +555,8 @@
     "description": "Editor di sottotitoli open source con sincronizzazione e traduzione",
     "source": "github",
     "repo": "SubtitleEdit/subtitleedit",
-    "assetPattern": "^SubtitleEdit-[\\d.]+-Setup\\.zip$",
-    "filename": "subtitle-edit-setup.zip",
+    "assetPattern": "^SubtitleEdit-Windows-x64-Setup\\.exe$",
+    "filename": "subtitle-edit-setup.exe",
     "detectRegistry": [
       "Subtitle Edit"
     ],
@@ -665,41 +570,25 @@
     "id": "imagemagick",
     "name": "ImageMagick",
     "description": "Suite a riga di comando per creare, modificare e convertire immagini",
-    "downloadUrl": "https://imagemagick.org/archive/binaries/ImageMagick-7.1.2-15-Q16-HDRI-x64-dll.exe",
+    "downloadUrl": "https://download.imagemagick.org/archive/binaries/ImageMagick-7.1.2-29-Q16-HDRI-x64-dll.exe",
     "homepage": "https://imagemagick.org",
-    "filename": "ImageMagick-7.1.2-15-Q16-HDRI-x64-dll.exe",
+    "filename": "ImageMagick-7.1.2-29-Q16-HDRI-x64-dll.exe",
     "detectRegistry": [
       "ImageMagick"
     ],
     "detectPaths": [
-      "C:/Program Files/ImageMagick-7.1.1-Q16-HDRI/magick.exe"
+      "C:/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe"
     ],
     "size": "~30MB",
     "description_en": "Command-line suite for creating, editing and converting images"
   },
   {
-    "id": "irfanview",
-    "name": "IrfanView",
-    "description": "Visualizzatore di immagini veloce e leggero con conversione batch",
-    "downloadUrl": "https://www.irfanview.info/files/iview466_x64_setup.exe",
-    "homepage": "https://www.irfanview.com",
-    "filename": "iview_x64_setup.exe",
-    "detectRegistry": [
-      "IrfanView 64-bit"
-    ],
-    "detectPaths": [
-      "C:/Program Files/IrfanView/i_view64.exe"
-    ],
-    "size": "~4MB",
-    "description_en": "Fast and lightweight image viewer with batch conversion"
-  },
-  {
     "id": "faststone",
     "name": "FastStone Image Viewer",
     "description": "Visualizzatore di immagini con editor integrato e cattura schermo",
-    "downloadUrl": "https://www.faststone.org/FSIVDownload.htm",
+    "downloadUrl": "https://www.faststone.org/DN/FSViewerSetup85.exe",
     "homepage": "https://www.faststone.org",
-    "filename": "FSViewerSetup78.exe",
+    "filename": "FSViewerSetup85.exe",
     "detectRegistry": [
       "FastStone Image Viewer"
     ],
@@ -747,8 +636,8 @@
     "name": "RawTherapee",
     "description": "Elaboratore di foto RAW open source e multi-piattaforma",
     "source": "github",
-    "repo": "Beep6581/RawTherapee",
-    "assetPattern": "^RawTherapee_[\\d.]+_win64_release\\.exe$",
+    "repo": "RawTherapee/RawTherapee",
+    "assetPattern": "^RawTherapee_[\\d.]+_win64_x86_64_release\\.exe$",
     "filename": "rawtherapee-setup.exe",
     "detectRegistry": [
       "RawTherapee"
@@ -774,5 +663,55 @@
     ],
     "size": "~175MB",
     "description_en": "Complete e-book manager with converter and reader"
+  },
+  {
+    "id": "sharex",
+    "name": "ShareX",
+    "description": "Strumento open source per cattura schermo, registrazione e condivisione",
+    "description_en": "Open source screen capture, recording and sharing tool",
+    "source": "github",
+    "repo": "ShareX/ShareX",
+    "assetPattern": "^ShareX-[\\d.]+-setup-x64\\.exe$",
+    "homepage": "https://getsharex.com",
+    "filename": "sharex-setup.exe",
+    "detectRegistry": [
+      "ShareX"
+    ],
+    "detectPaths": [
+      "C:/Program Files/ShareX/ShareX.exe"
+    ],
+    "size": "~15MB"
+  },
+  {
+    "id": "losslesscut",
+    "name": "LosslessCut",
+    "description": "Taglio video e audio senza ricodifica, veloce e senza perdita di qualità",
+    "description_en": "Lossless video and audio trimming without re-encoding",
+    "source": "github",
+    "repo": "mifi/lossless-cut",
+    "assetPattern": "^LosslessCut-win-x64\\.7z$",
+    "homepage": "https://github.com/mifi/lossless-cut",
+    "filename": "losslesscut-win-x64.7z",
+    "detectRegistry": [],
+    "detectPaths": [
+      "C:/Program Files/LosslessCut/LosslessCut.exe"
+    ],
+    "size": "~120MB"
+  },
+  {
+    "id": "ocenaudio",
+    "name": "Ocenaudio",
+    "description": "Editor audio semplice e veloce con analisi spettrale in tempo reale",
+    "description_en": "Simple and fast audio editor with real-time spectral analysis",
+    "downloadUrl": "https://www.ocenaudio.com/downloads/ocenaudio_windows64.exe",
+    "homepage": "https://www.ocenaudio.com",
+    "filename": "ocenaudio_windows64.exe",
+    "detectRegistry": [
+      "ocenaudio"
+    ],
+    "detectPaths": [
+      "C:/Program Files/ocenaudio/ocenaudio.exe"
+    ],
+    "size": "~40MB"
   }
 ]
