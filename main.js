@@ -5,7 +5,7 @@ const https = require('https');
 const { spawn, execSync } = require('child_process');
 const { autoUpdater } = require('electron-updater');
 
-const GITHUB_REPO = 'spadieri/wgetApp';
+const GITHUB_REPO = 'spadieri/software-loadout';
 
 function getWgetPath() {
   if (app.isPackaged) {
@@ -93,7 +93,7 @@ function checkForUpdates() {
 function checkForUpdatesPortable() {
   const req = https.get(
     `https://api.github.com/repos/${GITHUB_REPO}/releases/latest`,
-    { headers: { 'User-Agent': 'WgetApp-Updater', 'Accept': 'application/vnd.github+json' } },
+    { headers: { 'User-Agent': 'SoftwareLoadout-Updater', 'Accept': 'application/vnd.github+json' } },
     (res) => {
       if (res.statusCode !== 200) { res.resume(); return; }
       let data = '';
@@ -337,7 +337,7 @@ function fetchJson(url) {
       url,
       {
         headers: {
-          'User-Agent': 'WgetApp',
+          'User-Agent': 'SoftwareLoadout',
           'Accept': 'application/vnd.github+json'
         }
       },
@@ -393,7 +393,7 @@ async function resolveDownloadUrl(software) {
 // ============================================================
 
 ipcMain.handle('download-software', async (_event, software) => {
-  const downloadsPath = path.join(app.getPath('downloads'), 'WgetApp');
+  const downloadsPath = path.join(app.getPath('downloads'), 'SoftwareLoadout');
 
   if (!fs.existsSync(downloadsPath)) {
     fs.mkdirSync(downloadsPath, { recursive: true });
@@ -448,11 +448,11 @@ ipcMain.handle('download-software', async (_event, software) => {
 });
 
 ipcMain.handle('get-downloads-path', () => {
-  return path.join(app.getPath('downloads'), 'WgetApp');
+  return path.join(app.getPath('downloads'), 'SoftwareLoadout');
 });
 
 ipcMain.handle('open-downloads-folder', () => {
-  const downloadsPath = path.join(app.getPath('downloads'), 'WgetApp');
+  const downloadsPath = path.join(app.getPath('downloads'), 'SoftwareLoadout');
   if (!fs.existsSync(downloadsPath)) {
     fs.mkdirSync(downloadsPath, { recursive: true });
   }

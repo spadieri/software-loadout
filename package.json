@@ -1,7 +1,7 @@
 {
-  "name": "wget-app",
+  "name": "software-loadout",
   "version": "1.4.2",
-  "description": "Software installer using wget",
+  "description": "Windows software catalog and installer",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -23,8 +23,8 @@
     "regedit": "^5.1.4"
   },
   "build": {
-    "appId": "com.pierodisa.wgetapp",
-    "productName": "WgetApp",
+    "appId": "com.pierodisa.softwareloadout",
+    "productName": "Software Loadout",
     "copyright": "Copyright © 2026 Piero D'Isa",
     "directories": {
       "output": "dist",
@@ -70,16 +70,16 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "WgetApp",
-      "artifactName": "${productName}-Setup-${version}-${arch}.${ext}"
+      "shortcutName": "Software Loadout",
+      "artifactName": "${name}-Setup-${version}-${arch}.${ext}"
     },
     "portable": {
-      "artifactName": "${productName}-${version}-portable.${ext}"
+      "artifactName": "${name}-${version}-portable.${ext}"
     },
     "publish": {
       "provider": "github",
       "owner": "spadieri",
-      "repo": "wgetApp"
+      "repo": "software-loadout"
     }
   }
 }
