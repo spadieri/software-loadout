@@ -99,23 +99,6 @@
     "description_en": "LLM GGUF inference runtime, single executable"
   },
   {
-    "id": "cortex",
-    "name": "Cortex",
-    "description": "Runtime CLI locale per LLM di Jan",
-    "source": "github",
-    "repo": "janhq/cortex.cpp",
-    "assetPattern": "^cortex-[\\d.]+-windows-amd64-local-installer\\.exe$",
-    "filename": "cortex-setup.exe",
-    "detectRegistry": [
-      "Cortex"
-    ],
-    "detectPaths": [
-      "C:/Users/%USERNAME%/AppData/Local/cortexcpp/cortex.exe"
-    ],
-    "size": "~1GB",
-    "description_en": "Local CLI runtime for LLMs by Jan"
-  },
-  {
     "id": "claude-desktop",
     "name": "Claude Desktop",
     "description": "App desktop ufficiale di Claude AI di Anthropic",

@@ -720,7 +720,7 @@
     "name": "Emsisoft Emergency Kit",
     "description": "Kit portatile di scansione e rimozione malware a doppio motore",
     "downloadUrl": "https://dl.emsisoft.com/EmsisoftEmergencyKit.exe",
-    "homepage": "https://www.emsisoft.com/en/home/emergencykit/",
+    "homepage": "https://www.emsisoft.com/en/emergency-kit/",
     "filename": "EmsisoftEmergencyKit.exe",
     "detectRegistry": [],
     "detectPaths": [],

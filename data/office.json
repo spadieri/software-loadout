@@ -643,22 +643,22 @@
     "description_en": "Open source project management software, alternative to MS Project"
   },
   {
-    "id": "toggl-track",
-    "name": "Toggl Track",
-    "description": "App di time tracking semplice per freelancer e team",
-    "homepage": "https://toggl.com/track/",
-    "filename": "TogglTrack-Setup.exe",
+    "id": "activitywatch",
+    "name": "ActivityWatch",
+    "description": "Time tracker automatico open source: traccia da solo app, siti e attività, tutto in locale",
+    "description_en": "Free open-source automated time tracker, all data stays local",
+    "source": "github",
+    "repo": "activitywatch/activitywatch",
+    "assetPattern": "^activitywatch-v[\\d.]+-windows-x86_64-setup\\.exe$",
+    "filename": "activitywatch-setup.exe",
+    "homepage": "https://activitywatch.net",
     "detectRegistry": [
-      "Toggl Track"
+      "ActivityWatch"
     ],
     "detectPaths": [
-      "C:/Users/Pd85/AppData/Local/Programs/toggl-track/Toggl Track.exe"
+      "C:/Program Files/ActivityWatch/aw-qt.exe"
     ],
-    "size": "~80MB",
-    "description_en": "Simple time tracking app for freelancers and teams",
-    "source": "github",
-    "repo": "toggl-open-source/toggldesktop",
-    "assetPattern": "^TogglDesktopInstaller-x64-[\\d.]+\\.exe$"
+    "size": "~100MB"
   },
   {
     "id": "rescuetime",

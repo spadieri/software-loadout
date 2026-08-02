@@ -395,7 +395,7 @@
     "name": "IObit Advanced SystemCare (Trial)",
     "description": "Suite di ottimizzazione e pulizia sistema con protezione privacy",
     "downloadUrl": "https://www.iobit.com/downloadcenter.php?product=advanced-systemcare-free-new",
-    "homepage": "https://www.iobit.com/en/advancedsystemcareper.php",
+    "homepage": "https://www.iobit.com/en/advancedsystemcarefree.php",
     "filename": "asc-setup.exe",
     "detectRegistry": [
       "Advanced SystemCare"

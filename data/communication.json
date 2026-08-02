@@ -341,7 +341,7 @@
     "id": "miranda-im",
     "name": "Miranda IM",
     "description": "Client di messaggistica istantanea leggero e modulare",
-    "downloadUrl": "https://www.miranda-ng.org/distr/stable/miranda-ng-v0.96.6_x64.exe",
+    "downloadUrl": "https://www.miranda-ng.org/distr/stable/miranda-ng-v0.96.7_x64.exe",
     "homepage": "https://www.miranda-ng.org",
     "filename": "miranda-ng-v0.96.6_x64.exe",
     "detectRegistry": [
