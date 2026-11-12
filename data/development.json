@@ -970,6 +970,20 @@
     "description_en": "Open source network protocol analyzer"
   },
   {
+    "id": "windbg",
+    "name": "WinDbg",
+    "description": "Debugger ufficiale Microsoft per applicazioni, driver, kernel e crash dump (pacchetto MSIX con aggiornamento automatico)",
+    "description_en": "Microsoft's official debugger for applications, drivers, kernel and crash dumps (MSIX package with automatic updates)",
+    "downloadUrl": "https://windbg.download.prss.microsoft.com/dbazure/prod/1-0-0/windbg.appinstaller",
+    "homepage": "https://learn.microsoft.com/windows-hardware/drivers/debugger/",
+    "filename": "windbg.appinstaller",
+    "detectRegistry": [
+      "Microsoft.WinDbg"
+    ],
+    "detectPaths": [],
+    "size": "~1KB (appinstaller)"
+  },
+  {
     "id": "beyond-compare",
     "name": "Beyond Compare",
     "description": "Strumento professionale per confronto e unione di file e cartelle",
